@@ -7,9 +7,7 @@ import {
 } from '@mui/material/styles'
 import { type ReactNode } from 'react'
 
-// ** Theme
-
-import { useSettings } from '@/app/hooks/useSettings'
+import { useSettings } from '../hooks/useSettings'
 import { GlobalStyling } from '../styles/globalStylings'
 import themeOptions from './themeOptions'
 

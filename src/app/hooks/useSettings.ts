@@ -1,8 +1,8 @@
 import { useAtom } from 'jotai'
 import { useCallback, useEffect } from 'react'
 
-import { type Settings } from '../theme/types'
 import { defaultSettingsAtom } from '../Atoms/defaultSettingsAtom'
+import { type Settings } from '../theme/types'
 
 const initial = {
   themeColor: 'primary',
