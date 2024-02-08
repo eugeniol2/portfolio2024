@@ -1,9 +1,8 @@
 // ** MUI Imports
-import { type ComponentsPropsList } from '@mui/material'
-import { type Theme } from '@mui/material/styles'
+
+import { type ComponentsPropsList, type Theme } from '@mui/material/styles'
 
 import { type Settings } from '../types'
-
 import MuiTypography from './typography'
 
 export interface OwnerStateThemeType {
@@ -13,8 +12,6 @@ export interface OwnerStateThemeType {
 }
 
 const Overrides = (settings: Settings) => {
-  const { skin } = settings
-
   return Object.assign(MuiTypography)
 }
 

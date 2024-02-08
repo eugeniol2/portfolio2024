@@ -4,13 +4,12 @@ import { deepmerge } from '@mui/utils'
 
 import breakpoints from './breakpoints'
 import overrides from './overrides'
+import palette from './palette'
 // ** Theme Override Imports
-
 import shadows from './shadows'
 import spacing from './spacing'
 import { type Settings } from './types'
 import typography from './typography'
-import palette from './palette'
 
 const themeOptions = (settings: Settings): ThemeOptions => {
   const userThemeConfig: ThemeOptions = Object.assign({})

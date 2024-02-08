@@ -1,5 +1,5 @@
-import { hexToRGBA } from '@/app/utils/hexToRGBA'
-import { OwnerStateThemeType } from '.'
+import { hexToRGBA } from 'src/app/utils/hexToRGBA'
+import { type OwnerStateThemeType } from '.'
 
 const IconButton = {
   MuiIconButton: {
