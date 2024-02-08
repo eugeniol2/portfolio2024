@@ -1,4 +1,4 @@
-import Dashboard from 'src/feature/Dashboard'
+import Dashboard from '../feature/Dashboard'
 
 const dashboard = () => {
   return (
