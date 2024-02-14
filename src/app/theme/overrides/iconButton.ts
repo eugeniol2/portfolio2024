@@ -1,12 +1,14 @@
 import { hexToRGBA } from 'src/app/utils/hexToRGBA'
-import { type OwnerStateThemeType } from '.'
+
+import { type Theme } from '@mui/material/styles'
 
 const IconButton = {
   MuiIconButton: {
     variants: [
       {
         props: { color: 'primary' },
-        style: ({ theme }: OwnerStateThemeType) => ({
+        style: ({ theme }: { theme: Theme }) => ({
+          color: theme.palette.primary.main,
           '&:hover': {
             backgroundColor: hexToRGBA(theme.palette.primary.main, 0.08)
           }
@@ -14,47 +16,16 @@ const IconButton = {
       },
       {
         props: { color: 'secondary' },
-        style: ({ theme }: OwnerStateThemeType) => ({
+        style: ({ theme }: { theme: Theme }) => ({
+          color: theme.palette.secondary.main,
           '&:hover': {
             backgroundColor: hexToRGBA(theme.palette.secondary.main, 0.08)
-          }
-        })
-      },
-      {
-        props: { color: 'success' },
-        style: ({ theme }: OwnerStateThemeType) => ({
-          '&:hover': {
-            backgroundColor: hexToRGBA(theme.palette.success.main, 0.08)
-          }
-        })
-      },
-      {
-        props: { color: 'error' },
-        style: ({ theme }: OwnerStateThemeType) => ({
-          '&:hover': {
-            backgroundColor: hexToRGBA(theme.palette.error.main, 0.08)
-          }
-        })
-      },
-      {
-        props: { color: 'warning' },
-        style: ({ theme }: OwnerStateThemeType) => ({
-          '&:hover': {
-            backgroundColor: hexToRGBA(theme.palette.warning.main, 0.08)
-          }
-        })
-      },
-      {
-        props: { color: 'info' },
-        style: ({ theme }: OwnerStateThemeType) => ({
-          '&:hover': {
-            backgroundColor: hexToRGBA(theme.palette.info.main, 0.08)
           }
         })
       }
     ],
     styleOverrides: {
-      root: ({ theme }: OwnerStateThemeType) => ({
+      root: ({ theme }: { theme: Omit<Theme, 'components'> }) => ({
         '&:hover': {
           backgroundColor: `rgba(${theme.palette.customColors.main}, 0.08)`
         }

@@ -1,18 +1,18 @@
 // ** MUI Imports
-
-import { type ComponentsPropsList, type Theme } from '@mui/material/styles'
+import { type ComponentsPropsList } from '@mui/material'
+import { type Theme } from '@mui/material/styles'
 
 import { type Settings } from '../types'
+import MuiIconButton from './iconButton'
 import MuiTypography from './typography'
-
-export interface OwnerStateThemeType {
-  theme: Theme
-  ownerState: ComponentsPropsList[keyof ComponentsPropsList] &
-    Record<string, unknown>
-}
+import navTabs from './navTabs'
 
 const Overrides = (settings: Settings) => {
-  return Object.assign(MuiTypography)
+  const { skin } = settings
+
+  const nav = navTabs()
+
+  return Object.assign(MuiIconButton, MuiTypography, nav) as any
 }
 
 export default Overrides

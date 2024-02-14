@@ -1,7 +1,7 @@
 import { useAtom } from 'jotai'
 import { useCallback, useEffect } from 'react'
 
-import { defaultSettingsAtom } from '../Atoms/defaultSettingsAtom'
+import { defaultSettingsAtom } from '../atoms/defaultSettingsAtom'
 import { type Settings } from '../theme/types'
 
 const initial = {
