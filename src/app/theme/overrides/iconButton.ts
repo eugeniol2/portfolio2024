@@ -1,6 +1,6 @@
-import { hexToRGBA } from 'src/app/utils/hexToRGBA'
-
 import { type Theme } from '@mui/material/styles'
+
+import { hexToRGBA } from 'src/app/utils/hexToRGBA'
 
 const IconButton = {
   MuiIconButton: {

@@ -1,13 +1,11 @@
 // ** Type Imports
 import { type Palette } from '@mui/material'
 
-const DefaultPalette = (mode: Palette['mode'], skin: string): Palette => {
+const DefaultPalette = (skin: string): Palette => {
   // ** Vars
   const whiteColor = '#FFF'
   const grayColor = '#F8F7FA'
-  const lightColor = '75, 70, 92'
-  const mainColor = lightColor
-  const darkPaperBgColor = '#2F3349'
+  const mainColor = '19, 21, 23'
 
   const defaultBgColor = () => {
     if (skin === 'bordered') {
@@ -20,52 +18,39 @@ const DefaultPalette = (mode: Palette['mode'], skin: string): Palette => {
   return {
     customColors: {
       main: mainColor,
-      lightPaperBg: whiteColor,
-      darkPaperBg: darkPaperBgColor,
+
       bodyBg: grayColor,
       trackBg: 'rgba(75, 70, 92, 0.04)',
       avatarBg: '#DBDADE',
       tableHeaderBg: '#fff'
     },
-    mode,
+
     common: {
       black: '#000',
       white: whiteColor
     },
     primary: {
-      light: '#8479F2',
-      main: '#6B7AA1',
-      dark: '#655BD3',
+      main: '#8479F2',
       contrastText: whiteColor
     },
     secondary: {
-      light: '#B2B4B8',
       main: '#A8AAAE',
-      dark: '#11324D',
       contrastText: whiteColor
     },
     error: {
-      light: '#ED6F70',
       main: '#EA5455',
-      dark: '#CE4A4B',
       contrastText: whiteColor
     },
     warning: {
-      light: '#FFAB5A',
       main: '#FF9F43',
-      dark: '#E08C3B',
       contrastText: whiteColor
     },
     info: {
-      light: '#1FD5EB',
       main: '#00CFE8',
-      dark: '#00B6CC',
       contrastText: whiteColor
     },
     success: {
-      light: '#42CE80',
       main: '#28C76F',
-      dark: '#23AF62',
       contrastText: whiteColor
     },
     grey: {
