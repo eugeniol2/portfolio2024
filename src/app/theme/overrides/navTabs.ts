@@ -1,5 +1,3 @@
-import { hexToRGBA } from 'src/app/utils/hexToRGBA'
-
 import { type Theme } from '@mui/material/styles'
 
 const navTabs = () => {
@@ -7,7 +5,21 @@ const navTabs = () => {
     MuiTabs: {
       styleOverrides: {
         root: ({ theme }: { theme: Omit<Theme, 'components'> }) => ({
-          backgroundColor: hexToRGBA(theme.palette.primary.main, 0.08)
+          backgroundColor: 'none'
+        }),
+        indicator: ({ theme }: { theme: Omit<Theme, 'components'> }) => ({
+          // Customize the underline
+          backgroundColor: theme.palette.primary.main, // Change the color of the underline
+          height: 1 // Change the height of the underline
+        })
+      }
+    },
+    MuiTab: {
+      styleOverrides: {
+        root: ({ theme }: { theme: Omit<Theme, 'components'> }) => ({
+          '&.Mui-selected': {
+            color: theme.palette.text.primary
+          }
         })
       }
     }

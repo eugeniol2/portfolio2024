@@ -1,15 +1,6 @@
 // components/Layout.js
+import { Box, Stack, Tab, Tabs, Typography } from '@mui/material'
 import React, { type ReactElement } from 'react'
-import Link from 'next/link'
-import {
-  AppBar,
-  Toolbar,
-  Typography,
-  Tabs,
-  Tab,
-  Box,
-  Stack
-} from '@mui/material'
 
 interface LayoutProps {
   children: ReactElement | ReactElement[]
@@ -23,17 +14,32 @@ const Layout = ({ children }: LayoutProps) => {
   }
   return (
     <Box>
-      <Stack flexDirection="row" alignItems="center" justifyContent="center">
-        <Typography variant="h6" component="div">
-          My App
+      <Stack
+        flexDirection="row"
+        alignItems="center"
+        justifyContent="space-between"
+        marginX="36px"
+      >
+        <Typography variant="h3" component="div">
+          Eugênio Araújo
         </Typography>
+
         <Tabs value={value} onChange={handleChange}>
-          <Tab label="Home" />
-          <Tab label="About" />
-          <Tab label="Contact" />
+          <Tab label="Home" disableRipple />
+          <Tab label="About-Me" disableRipple />
+          <Tab label="Projects" disableRipple />
+          <Tab label="Resume" disableRipple />
+          <Tab label="Skills" disableRipple />
+          <Tab label="Contact" disableRipple />
         </Tabs>
       </Stack>
-      <Box>{children}</Box>
+      <Box
+        style={{
+          margin: '32px 32px 0px 32px'
+        }}
+      >
+        {children}
+      </Box>
     </Box>
   )
 }

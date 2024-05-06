@@ -8,7 +8,6 @@ const initial = {
   themeColor: 'primary',
   appBar: 'fixed',
   layout: 'vertical' /* vertical | horizontal */,
-  mode: 'light' /* light | dark */,
   skin: 'default' /* default | bordered */,
   contentWidth: 'boxed' /* full | boxed */,
   appBarBlur: true /* true | false */,
