@@ -1,11 +1,11 @@
 const typography = {
   fontFamily: [
+    'Roboto',
     'Public Sans',
     'sans-serif',
     '-apple-system',
     'BlinkMacSystemFont',
     '"Segoe UI"',
-    'Roboto',
     '"Helvetica Neue"',
     'Arial',
     'sans-serif',

@@ -1,5 +1,5 @@
 // components/Layout.js
-import { Box, Button, Stack, Tab, Tabs, Typography } from '@mui/material'
+import { Box, Stack, Tab, Tabs, Typography } from '@mui/material'
 import React, { type ReactElement } from 'react'
 
 interface LayoutProps {
@@ -20,18 +20,26 @@ const Layout = ({ children }: LayoutProps) => {
         justifyContent="space-between"
         marginX="36px"
       >
-        <Button variant="contained">
-          <Typography variant="h6" component="div">
-            Logo
-          </Typography>
-        </Button>
+        <Typography variant="h3" component="div">
+          Eugênio Araújo
+        </Typography>
+
         <Tabs value={value} onChange={handleChange}>
           <Tab label="Home" disableRipple />
-          <Tab label="About" disableRipple />
+          <Tab label="About-Me" disableRipple />
+          <Tab label="Projects" disableRipple />
+          <Tab label="Resume" disableRipple />
+          <Tab label="Skills" disableRipple />
           <Tab label="Contact" disableRipple />
         </Tabs>
       </Stack>
-      <Box>{children}</Box>
+      <Box
+        style={{
+          margin: '32px 32px 0px 32px'
+        }}
+      >
+        {children}
+      </Box>
     </Box>
   )
 }
