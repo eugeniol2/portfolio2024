@@ -20,7 +20,11 @@ const Layout = ({ children }: LayoutProps) => {
         justifyContent="space-between"
         marginX="36px"
       >
-        <Typography variant="h3" component="div">
+        <Typography
+          variant="h3"
+          component="div"
+          fontFamily="Shadows Into Light"
+        >
           Eugênio Araújo
         </Typography>
 

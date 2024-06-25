@@ -8,9 +8,8 @@ const navTabs = () => {
           backgroundColor: 'none'
         }),
         indicator: ({ theme }: { theme: Omit<Theme, 'components'> }) => ({
-          // Customize the underline
-          backgroundColor: theme.palette.primary.main, // Change the color of the underline
-          height: 1 // Change the height of the underline
+          backgroundColor: theme.palette.text.primary,
+          height: 1
         })
       }
     },
