@@ -3,7 +3,7 @@ import React from 'react'
 
 import Layout from 'src/app/components/layout'
 
-const Dashboard = () => {
+const Home = () => {
   return (
     <Layout>
       <Box display="flex" justifyContent="center">
@@ -40,4 +40,4 @@ const Dashboard = () => {
   )
 }
 
-export default Dashboard
+export default Home

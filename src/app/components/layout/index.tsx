@@ -1,17 +1,28 @@
 // components/Layout.js
 import { Box, Stack, Tab, Tabs, Typography } from '@mui/material'
-import React, { type ReactElement } from 'react'
+import React, { useEffect } from 'react'
+import { useRouter } from 'next/router'
 
 interface LayoutProps {
-  children: ReactElement | ReactElement[]
+  children: React.ReactNode
 }
 
 const Layout = ({ children }: LayoutProps) => {
+  const router = useRouter()
   const [value, setValue] = React.useState(0)
+
+  const routes = ['/', '/about', '/projects', '/resume', '/skills', '/contact']
+
+  useEffect(() => {
+    const currentRoute = routes.indexOf(router.pathname)
+    setValue(currentRoute !== -1 ? currentRoute : 0)
+  }, [router.pathname])
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue)
+    router.push(routes[newValue])
   }
+
   return (
     <Box>
       <Stack
@@ -29,12 +40,11 @@ const Layout = ({ children }: LayoutProps) => {
         </Typography>
 
         <Tabs value={value} onChange={handleChange}>
-          <Tab label="Home" disableRipple />
-          <Tab label="About-Me" disableRipple />
-          <Tab label="Projects" disableRipple />
-          <Tab label="Resume" disableRipple />
-          <Tab label="Skills" disableRipple />
-          <Tab label="Contact" disableRipple />
+          {['Home', 'About Me', 'Projects', 'Resume', 'Skills', 'Contact'].map(
+            (label, index) => (
+              <Tab key={index} label={label} disableRipple />
+            )
+          )}
         </Tabs>
       </Stack>
       <Box
