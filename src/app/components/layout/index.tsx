@@ -24,12 +24,20 @@ const Layout = ({ children }: LayoutProps) => {
   }
 
   return (
-    <Box>
+    <>
       <Stack
         flexDirection="row"
         alignItems="center"
         justifyContent="space-between"
         marginX="36px"
+        sx={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          right: 0,
+          zIndex: 1000,
+          padding: '10px 0' // Adjust padding as needed
+        }}
       >
         <Typography
           variant="h3"
@@ -47,14 +55,8 @@ const Layout = ({ children }: LayoutProps) => {
           )}
         </Tabs>
       </Stack>
-      <Box
-        style={{
-          margin: '32px 32px 0px 32px'
-        }}
-      >
-        {children}
-      </Box>
-    </Box>
+      <Box margin="64px 32px 0px 32px">{children}</Box>
+    </>
   )
 }
 

@@ -1,13 +1,11 @@
 import { Box, Stack, Tab, Tabs, Typography } from '@mui/material'
 import React from 'react'
 
-import Layout from 'src/app/components/layout'
-
 const Home = () => {
   return (
-    <Layout>
-      <Box display="flex" justifyContent="center">
-        <Box margin="140px">
+    <>
+      <Stack display="flex" alignItems="center" flexDirection="row">
+        <Box>
           <Typography variant="h1">Olá! Sou Eugênio Dorneles Araújo</Typography>
           <Typography
             variant="h5"
@@ -35,8 +33,8 @@ const Home = () => {
         >
           <Typography variant="h1">Picture</Typography>
         </Box>
-      </Box>
-    </Layout>
+      </Stack>
+    </>
   )
 }
 
