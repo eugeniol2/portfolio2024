@@ -36,7 +36,7 @@ const Layout = ({ children }: LayoutProps) => {
           left: 0,
           right: 0,
           zIndex: 1000,
-          padding: '10px 0' // Adjust padding as needed
+          padding: '10px 0'
         }}
       >
         <Typography
@@ -48,14 +48,12 @@ const Layout = ({ children }: LayoutProps) => {
         </Typography>
 
         <Tabs value={value} onChange={handleChange}>
-          {['Home', 'About Me', 'Projects', 'Resume', 'Skills', 'Contact'].map(
-            (label, index) => (
-              <Tab key={index} label={label} disableRipple />
-            )
-          )}
+          {['Home', 'About Me', 'Projects', 'Contact'].map((label, index) => (
+            <Tab key={index} label={label} disableRipple />
+          ))}
         </Tabs>
       </Stack>
-      <Box margin="64px 32px 0px 32px">{children}</Box>
+      <Box margin="192px 32px 0px 32px">{children}</Box>
     </>
   )
 }
