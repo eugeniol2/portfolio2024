@@ -1,11 +1,11 @@
-import Dashboard from '../feature/Dashboard'
+import Home from '../feature/Home'
 
-const dashboard = () => {
+const home = () => {
   return (
     <>
-      <Dashboard />
+      <Home />
     </>
   )
 }
 
-export default dashboard
+export default home

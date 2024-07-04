@@ -1,5 +1,6 @@
 // pages/_app.js
 import { CacheProvider, type EmotionCache } from '@emotion/react'
+import { Box } from '@mui/material'
 import { ConfigProvider } from 'antd'
 import ptBR from 'antd/lib/locale/pt_BR'
 import { Provider } from 'jotai'
@@ -7,6 +8,7 @@ import { type AppProps } from 'next/app'
 import React, { useState } from 'react'
 import { Hydrate, QueryClient, QueryClientProvider } from 'react-query'
 import { Toaster } from 'sonner'
+import Layout from 'src/app/components/layout'
 
 import createEmotionCache from 'src/app/createEmotionCache'
 import { ThemeComponent } from 'src/app/theme'
@@ -37,7 +39,9 @@ function MyApp({
                 position="bottom-center"
               />
               <ConfigProvider locale={ptBR}>
-                <Component {...pageProps} />
+                <Layout>
+                  <Component {...pageProps} />
+                </Layout>
               </ConfigProvider>
             </ThemeComponent>
           </CacheProvider>
