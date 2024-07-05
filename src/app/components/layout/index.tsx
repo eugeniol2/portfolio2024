@@ -11,7 +11,7 @@ const Layout = ({ children }: LayoutProps) => {
   const router = useRouter()
   const [value, setValue] = React.useState(0)
 
-  const routes = ['/', '/about', '/projects', '/resume', '/skills', '/contact']
+  const routes = ['/', '/about', '/projects', '/contact']
 
   useEffect(() => {
     const currentRoute = routes.indexOf(router.pathname)
