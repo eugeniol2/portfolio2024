@@ -1,6 +1,5 @@
 // pages/_app.js
 import { CacheProvider, type EmotionCache } from '@emotion/react'
-import { Box } from '@mui/material'
 import { ConfigProvider } from 'antd'
 import ptBR from 'antd/lib/locale/pt_BR'
 import { Provider } from 'jotai'

@@ -1,5 +1,19 @@
+import images from 'src/images'
+
 export const GlobalStyling = (theme: any) => {
   return {
+    body: {
+      width: '100%',
+      height: '75vh',
+      backgroundImage: `url(${images.background.src})`,
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+      backgroundAttachment: 'fixed',
+      backgroundRepeat: 'no-repeat',
+      margin: 0,
+      padding: 0,
+      overflow: 'hidden'
+    },
     '.demo-space-x > *': {
       marginTop: '1rem !important',
       marginRight: '1rem !important',
@@ -54,7 +68,7 @@ export const GlobalStyling = (theme: any) => {
         width: '100%',
         zIndex: 2000,
         position: 'fixed',
-        backgroundColor: theme.palette.primary.main
+        backgroundColor: 'theme.palette.primary.main'
       }
     }
   }

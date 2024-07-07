@@ -5,10 +5,10 @@ import { projects } from './mock/data'
 
 const Projects = () => {
   return (
-    <Grid container spacing={2} justifyContent="center">
+    <Grid container spacing={1} justifyContent="center">
       {projects.map((project, index) => (
         <Grid item key={index}>
-          <Slide direction="left" in={true} timeout={500 + index * 300}>
+          <Slide direction="left" in={true} timeout={500 + index * 200}>
             <Box>
               <CustomCard
                 title={project.title}

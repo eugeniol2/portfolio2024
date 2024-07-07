@@ -8,13 +8,13 @@ const About = () => {
         {/* Seção de Biografia */}
         <Box>
           <Fade in={true} timeout={1000}>
-            <Typography variant="h1" textAlign="center">
+            <Typography variant="h2" textAlign="center">
               Biografia
             </Typography>
           </Fade>
           <Fade in={true} timeout={1200}>
             <Typography
-              variant="h5"
+              variant="h6"
               sx={{
                 marginTop: '16px',
                 lineHeight: 1.6
@@ -30,7 +30,7 @@ const About = () => {
           </Fade>
           <Fade in={true} timeout={1400}>
             <Typography
-              variant="h5"
+              variant="h6"
               sx={{
                 marginTop: '16px',
                 lineHeight: 1.6
@@ -46,13 +46,13 @@ const About = () => {
 
         <Box>
           <Fade in={true} timeout={1600}>
-            <Typography variant="h1" textAlign="center">
+            <Typography variant="h2" textAlign="center">
               Objetivos
             </Typography>
           </Fade>
           <Fade in={true} timeout={1800}>
             <Typography
-              variant="h5"
+              variant="h6"
               sx={{
                 marginTop: '16px',
                 lineHeight: 1.6
@@ -66,7 +66,7 @@ const About = () => {
           </Fade>
           <Fade in={true} timeout={2000}>
             <Typography
-              variant="h5"
+              variant="h6"
               sx={{
                 marginTop: '16px',
                 lineHeight: 1.6
