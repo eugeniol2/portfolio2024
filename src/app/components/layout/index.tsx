@@ -29,31 +29,21 @@ const Layout = ({ children }: LayoutProps) => {
         flexDirection="row"
         alignItems="center"
         justifyContent="space-between"
-        marginX="36px"
-        sx={{
-          position: 'fixed',
-          top: 0,
-          left: 0,
-          right: 0,
-          zIndex: 1000,
-          padding: '10px 0'
-        }}
       >
-        <Typography
-          variant="h3"
-          component="div"
-          fontFamily="Shadows Into Light"
-        >
-          Eugênio Araújo
-        </Typography>
-
-        <Tabs value={value} onChange={handleChange}>
+        <Tabs value={value} onChange={handleChange} sx={{ marginLeft: 'auto' }}>
           {['Home', 'About Me', 'Projects', 'Contact'].map((label, index) => (
             <Tab key={index} label={label} disableRipple />
           ))}
         </Tabs>
       </Stack>
-      <Box margin="192px 32px 0px 32px">{children}</Box>
+      <Box
+        display="flex"
+        flexDirection="column"
+        marginX="32px"
+        height="calc(100vh - 48px)"
+      >
+        {children}
+      </Box>
     </>
   )
 }
