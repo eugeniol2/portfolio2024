@@ -36,7 +36,12 @@ const Layout = ({ children }: LayoutProps) => {
           ))}
         </Tabs>
       </Stack>
-      <Box display="flex" minHeight="100vh" margin="32px">
+      <Box
+        display="flex"
+        flexDirection="column"
+        marginX="32px"
+        height="calc(100vh - 48px)"
+      >
         {children}
       </Box>
     </>

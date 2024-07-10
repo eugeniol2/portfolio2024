@@ -11,8 +11,7 @@ export const GlobalStyling = (theme: any) => {
       backgroundAttachment: 'fixed',
       backgroundRepeat: 'no-repeat',
       margin: 0,
-      padding: 0,
-      overflow: 'hidden'
+      padding: 0
     },
     '.demo-space-x > *': {
       marginTop: '1rem !important',

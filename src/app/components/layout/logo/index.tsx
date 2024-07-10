@@ -4,7 +4,7 @@ import React from 'react'
 
 const Logo = () => {
   return (
-    <Fade in={true} timeout={1000}>
+    <Fade in={true} timeout={3000}>
       <Typography
         component="div"
         fontFamily="Shadows Into Light"
