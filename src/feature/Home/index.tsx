@@ -1,26 +1,48 @@
-import { Box, Fade, Stack, Typography } from '@mui/material'
+import {
+  Box,
+  Fade,
+  Stack,
+  Typography,
+  useMediaQuery,
+  useTheme
+} from '@mui/material'
 import React from 'react'
 import Logo from 'src/app/components/layout/logo'
+import responsiveStyles from 'src/app/styles/responsive'
 
 const Home = () => {
+  const theme = useTheme()
+  const isXs = useMediaQuery(theme.breakpoints.down('xs'))
+  const isSm = useMediaQuery(theme.breakpoints.down('sm'))
+  const isMd = useMediaQuery(theme.breakpoints.down('md'))
+
+  let styles = responsiveStyles.lgStyles
+  if (isXs) styles = responsiveStyles.xsStyles
+  else if (isSm) styles = responsiveStyles.smStyles
+  else if (isMd) styles = responsiveStyles.mdStyles
+
   const textProps = {
     marginTop: '16px',
-    textAlign: 'justify'
+    textAlign: 'justify',
+    ...styles.typography
   }
 
   return (
     <Stack
-      display="flex"
-      flexDirection="row"
-      justifyContent="space-between"
-      alignItems="center"
-      height="100%"
-      marginBottom="10%"
-      marginRight="5%"
+      sx={{
+        display: 'flex',
+        flexDirection: styles.container.flexDirection,
+        justifyContent: styles.container.justifyContent,
+        alignItems: 'center',
+        height: '100%',
+        marginBottom: '10%',
+        marginRight: '5%',
+        padding: styles.container.padding
+      }}
     >
-      <Logo />
-      <Box display="flex" width="50%">
-        <Stack>
+      {!isXs && <Logo />}
+      <Box display="flex" width={isSm ? '100%' : '50%'}>
+        <Stack overflow="auto">
           <Fade in={true} timeout={1000}>
             <Typography variant="h2" textAlign="center">
               Olá! Sou <b>Eugênio Araújo</b>.

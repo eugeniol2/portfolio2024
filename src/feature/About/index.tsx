@@ -1,39 +1,61 @@
-import { Box, Fade, Stack, Typography } from '@mui/material'
-import { Image } from 'antd'
+import {
+  Box,
+  Fade,
+  Stack,
+  Typography,
+  useMediaQuery,
+  useTheme
+} from '@mui/material'
 import React from 'react'
 import images from 'src/images'
+import responsiveStyles from 'src/app/styles/responsive'
 
 const About = () => {
+  const theme = useTheme()
+  const isXs = useMediaQuery(theme.breakpoints.down('xs'))
+  const isSm = useMediaQuery(theme.breakpoints.down('sm'))
+  const isMd = useMediaQuery(theme.breakpoints.down('md'))
+
+  let styles = responsiveStyles.lgStyles
+  if (isXs) styles = responsiveStyles.xsStyles
+  else if (isSm) styles = responsiveStyles.smStyles
+  else if (isMd) styles = responsiveStyles.mdStyles
+
   const textProps = {
     marginTop: '16px',
-    textAlign: 'justify'
+    textAlign: 'justify',
+    ...styles.typography
   }
 
   return (
     <Box
-      display="flex"
-      flexDirection="row"
-      justifyContent="space-between"
-      alignItems="center"
-      height="100%"
-      marginBottom="10%"
-      marginRight="5%"
+      sx={{
+        display: 'flex',
+        flexDirection: styles.container.flexDirection,
+        justifyContent: styles.container.justifyContent,
+        alignItems: 'center',
+        height: '100%',
+        marginBottom: '10%',
+        marginRight: '5%',
+        padding: styles.container.padding
+      }}
     >
-      <Fade in={true} timeout={3000}>
-        <Box
-          component="img"
-          src={images.selfie.src}
-          alt="Selfie"
-          sx={{
-            borderRadius: '50%',
-            width: '20%',
-
-            boxShadow: '0 4px 8px rgba(0,0,0,0.2)'
-          }}
-        />
-      </Fade>
-      <Box width="50%">
-        <Stack>
+      {!isXs && (
+        <Fade in={true} timeout={3000}>
+          <Box
+            component="img"
+            src={images.selfie.src}
+            alt="Selfie"
+            sx={{
+              borderRadius: '50%',
+              width: styles.image.width,
+              boxShadow: '0 4px 8px rgba(0,0,0,0.2)'
+            }}
+          />
+        </Fade>
+      )}
+      <Box width={isSm ? '100%' : '50%'}>
+        <Stack overflow="auto">
           <Fade in={true} timeout={1000}>
             <Typography variant="h2" textAlign="center">
               Biografia
