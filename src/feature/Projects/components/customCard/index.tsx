@@ -3,7 +3,9 @@ import {
   CardActionArea,
   CardContent,
   CardMedia,
-  Typography
+  Typography,
+  Stack,
+  Chip
 } from '@mui/material'
 import React from 'react'
 
@@ -11,9 +13,10 @@ interface CustomCardProps {
   title: string
   description: string
   image: string
+  tags: string[]
 }
 
-const CustomCard = ({ title, description, image }: CustomCardProps) => {
+const CustomCard = ({ title, description, image, tags }: CustomCardProps) => {
   return (
     <Card sx={{ maxWidth: 345, margin: '1rem' }}>
       <CardActionArea>
@@ -25,6 +28,17 @@ const CustomCard = ({ title, description, image }: CustomCardProps) => {
           <Typography variant="body2" color="text.secondary">
             {description}
           </Typography>
+          <Stack direction="row" spacing={1} mt={2} flexWrap="wrap">
+            {tags.map((tag, index) => (
+              <Chip
+                key={index}
+                label={tag}
+                size="small"
+                variant="outlined"
+                sx={{ margin: 0.5 }}
+              />
+            ))}
+          </Stack>
         </CardContent>
       </CardActionArea>
     </Card>
