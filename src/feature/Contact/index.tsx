@@ -1,17 +1,29 @@
-import { Box, Typography, Link, Fade } from '@mui/material'
+import {
+  Box,
+  Typography,
+  Link,
+  Fade,
+  useMediaQuery,
+  useTheme
+} from '@mui/material'
 import { Image } from 'antd'
 import React from 'react'
 import images from 'src/images'
 import LinkedInIcon from '@mui/icons-material/LinkedIn'
+import responsiveStyles from 'src/app/styles/responsive'
 
 const Contact = () => {
+  const theme = useTheme()
+
+  const isLgUp = useMediaQuery(theme.breakpoints.up('lg'))
+
   return (
     <Box
       height="100vh"
       display="flex"
-      justifyContent="flex-end"
+      justifyContent={isLgUp ? 'flex-end' : 'center'}
       alignItems="center"
-      paddingRight="15%"
+      paddingRight={isLgUp ? '15%' : '0'}
     >
       <Box
         display="flex"
