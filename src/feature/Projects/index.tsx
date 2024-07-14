@@ -1,9 +1,12 @@
 import { Box, Grid, Slide } from '@mui/material'
 import React from 'react'
-import CustomCard from './components/customCard'
-import { projects } from './mock/data'
 
-const Projects = () => {
+import CustomCard from './components/customCard'
+import { type ProjectsType } from './types/projectsType'
+
+interface ProjectsProps extends ProjectsType {}
+
+const Projects: React.FC<ProjectsProps> = ({ projects }) => {
   return (
     <Box sx={{ padding: 2 }}>
       <Grid

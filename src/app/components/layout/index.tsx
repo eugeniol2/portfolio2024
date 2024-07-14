@@ -1,7 +1,7 @@
 // components/Layout.js
-import { Box, Stack, Tab, Tabs, Typography } from '@mui/material'
-import React, { useEffect } from 'react'
+import { Box, Stack, Tab, Tabs } from '@mui/material'
 import { useRouter } from 'next/router'
+import React, { useEffect } from 'react'
 
 interface LayoutProps {
   children: React.ReactNode
