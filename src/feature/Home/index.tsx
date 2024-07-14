@@ -7,6 +7,7 @@ import {
   useTheme
 } from '@mui/material'
 import React from 'react'
+
 import Logo from 'src/app/components/layout/logo'
 import responsiveStyles from 'src/app/styles/responsive'
 

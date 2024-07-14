@@ -1,5 +1,6 @@
 // pages/_app.js
 import { CacheProvider, type EmotionCache } from '@emotion/react'
+import { PrismicPreview } from '@prismicio/next'
 import { ConfigProvider } from 'antd'
 import ptBR from 'antd/lib/locale/pt_BR'
 import { Provider } from 'jotai'
@@ -7,10 +8,11 @@ import { type AppProps } from 'next/app'
 import React, { useState } from 'react'
 import { Hydrate, QueryClient, QueryClientProvider } from 'react-query'
 import { Toaster } from 'sonner'
-import Layout from 'src/app/components/layout'
 
+import Layout from 'src/app/components/layout'
 import createEmotionCache from 'src/app/createEmotionCache'
 import { ThemeComponent } from 'src/app/theme'
+import { repositoryName } from 'src/prismicio'
 
 const clientSideEmotionCache = createEmotionCache()
 
@@ -41,6 +43,7 @@ function MyApp({
                 <Layout>
                   <Component {...pageProps} />
                 </Layout>
+                <PrismicPreview repositoryName={repositoryName} />
               </ConfigProvider>
             </ThemeComponent>
           </CacheProvider>

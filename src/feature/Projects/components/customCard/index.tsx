@@ -1,11 +1,12 @@
+// components/customCard.js
 import {
+  Box,
   Card,
   CardActionArea,
   CardContent,
   CardMedia,
-  Typography,
-  Stack,
-  Chip
+  Chip,
+  Typography
 } from '@mui/material'
 import React from 'react'
 
@@ -28,17 +29,11 @@ const CustomCard = ({ title, description, image, tags }: CustomCardProps) => {
           <Typography variant="body2" color="text.secondary">
             {description}
           </Typography>
-          <Stack direction="row" spacing={1} mt={2} flexWrap="wrap">
+          <Box sx={{ marginTop: 1 }}>
             {tags.map((tag, index) => (
-              <Chip
-                key={index}
-                label={tag}
-                size="small"
-                variant="outlined"
-                sx={{ margin: 0.5 }}
-              />
+              <Chip key={index} label={tag} sx={{ marginRight: 0.5 }} />
             ))}
-          </Stack>
+          </Box>
         </CardContent>
       </CardActionArea>
     </Card>

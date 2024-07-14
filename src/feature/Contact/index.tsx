@@ -1,16 +1,16 @@
+import LinkedInIcon from '@mui/icons-material/LinkedIn'
 import {
   Box,
-  Typography,
-  Link,
   Fade,
+  Link,
+  Typography,
   useMediaQuery,
   useTheme
 } from '@mui/material'
 import { Image } from 'antd'
 import React from 'react'
+
 import images from 'src/images'
-import LinkedInIcon from '@mui/icons-material/LinkedIn'
-import responsiveStyles from 'src/app/styles/responsive'
 
 const Contact = () => {
   const theme = useTheme()

@@ -1,7 +1,7 @@
-import xsStyles from './xs'
-import smStyles from './sm'
-import mdStyles from './md'
 import lgStyles from './lg'
+import mdStyles from './md'
+import smStyles from './sm'
+import xsStyles from './xs'
 
 const responsiveStyles = { xsStyles, smStyles, mdStyles, lgStyles }
 

@@ -7,8 +7,9 @@ import {
   useTheme
 } from '@mui/material'
 import React from 'react'
-import images from 'src/images'
+
 import responsiveStyles from 'src/app/styles/responsive'
+import images from 'src/images'
 
 const About = () => {
   const theme = useTheme()
