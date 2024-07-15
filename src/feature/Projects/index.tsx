@@ -7,6 +7,7 @@ import { type ProjectsType } from './types/projectsType'
 interface ProjectsProps extends ProjectsType {}
 
 const Projects: React.FC<ProjectsProps> = ({ projects }) => {
+  console.log('projects', projects)
   return (
     <Box sx={{ padding: 2 }}>
       <Grid
@@ -22,8 +23,9 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
                 <CustomCard
                   title={project.title}
                   description={project.description}
-                  image={project.image}
+                  image={project.cardImage}
                   tags={project.tags}
+                  slug={project.uid}
                 />
               </Box>
             </Slide>
