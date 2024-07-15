@@ -41,6 +41,7 @@ const Layout = ({ children }: LayoutProps) => {
         flexDirection="column"
         marginX="32px"
         height="calc(100vh - 48px)"
+        overflow="auto"
       >
         {children}
       </Box>

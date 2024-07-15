@@ -4,7 +4,8 @@ export interface Project {
   uid: string
   title: string
   description: string
-  image: string
+  cardImage: string
+  image: string[]
   tags: string[]
 }
 

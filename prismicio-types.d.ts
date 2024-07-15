@@ -5,6 +5,21 @@ import type * as prismic from '@prismicio/client'
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] }
 
 /**
+ * Item in *project → project images*
+ */
+export interface ProjectDocumentDataProjectImagesItem {
+  /**
+   * image field in *project → project images*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: project.project_images[].image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>
+}
+
+/**
  * Item in *project → tags*
  */
 export interface ProjectDocumentDataTagsItem {
@@ -24,15 +39,28 @@ export interface ProjectDocumentDataTagsItem {
  */
 interface ProjectDocumentData {
   /**
-   * project image field in *project*
+   * card image field in *project*
    *
    * - **Field Type**: Image
    * - **Placeholder**: *None*
-   * - **API ID Path**: project.project_image
+   * - **API ID Path**: project.card_image
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#image
    */
-  project_image: prismic.ImageField<never>
+  card_image: prismic.ImageField<never>
+
+  /**
+   * project images field in *project*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: project.project_images[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  project_images: prismic.GroupField<
+    Simplify<ProjectDocumentDataProjectImagesItem>
+  >
 
   /**
    * project title field in *project*
@@ -159,6 +187,7 @@ declare module '@prismicio/client' {
     export type {
       ProjectDocument,
       ProjectDocumentData,
+      ProjectDocumentDataProjectImagesItem,
       ProjectDocumentDataTagsItem,
       SettingsDocument,
       SettingsDocumentData,

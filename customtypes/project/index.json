@@ -12,12 +12,29 @@
         },
         "type": "UID"
       },
-      "project_image": {
+      "card_image": {
         "type": "Image",
         "config": {
-          "label": "project image",
+          "label": "card image",
           "constraint": {},
           "thumbnails": []
+        }
+      },
+      "project_images": {
+        "type": "Group",
+        "config": {
+          "label": "project images",
+          "repeat": true,
+          "fields": {
+            "image": {
+              "type": "Image",
+              "config": {
+                "label": "image",
+                "constraint": {},
+                "thumbnails": []
+              }
+            }
+          }
         }
       },
       "project_title": {
