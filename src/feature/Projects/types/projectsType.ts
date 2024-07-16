@@ -5,7 +5,7 @@ export interface Project {
   title: string
   description: string
   cardImage: string
-  image: string[]
+  images: string[]
   tags: string[]
 }
 

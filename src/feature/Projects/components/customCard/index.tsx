@@ -9,6 +9,7 @@ import {
   Typography
 } from '@mui/material'
 import Link from 'next/link'
+import router from 'next/router'
 import React from 'react'
 
 interface CustomCardProps {
@@ -26,37 +27,39 @@ const CustomCard = ({
   tags,
   slug
 }: CustomCardProps) => {
+  const handleClick = () => {
+    router.push(`/projects/${slug}`)
+  }
+
   return (
-    <Link href={`/projects/${slug}`} passHref>
-      <Card sx={{ maxWidth: 345, margin: '1rem' }}>
-        <CardActionArea>
-          <CardMedia component="img" height="140" image={image} alt={title} />
-          <CardContent>
-            <Typography gutterBottom variant="h5" component="div">
-              {title}
-            </Typography>
-            <Typography
-              variant="body2"
-              color="text.secondary"
-              sx={{
-                display: '-webkit-box',
-                WebkitBoxOrient: 'vertical',
-                overflow: 'hidden',
-                WebkitLineClamp: 4,
-                textOverflow: 'ellipsis'
-              }}
-            >
-              {description}
-            </Typography>
-            <Box sx={{ marginTop: 1 }}>
-              {tags.map((tag, index) => (
-                <Chip key={index} label={tag} sx={{ marginRight: 0.5 }} />
-              ))}
-            </Box>
-          </CardContent>
-        </CardActionArea>
-      </Card>
-    </Link>
+    <Card sx={{ maxWidth: 345, margin: '1rem' }} onClick={handleClick}>
+      <CardActionArea>
+        <CardMedia component="img" height="140" image={image} alt={title} />
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="div">
+            {title}
+          </Typography>
+          <Typography
+            variant="body2"
+            color="text.secondary"
+            sx={{
+              display: '-webkit-box',
+              WebkitBoxOrient: 'vertical',
+              overflow: 'hidden',
+              WebkitLineClamp: 4,
+              textOverflow: 'ellipsis'
+            }}
+          >
+            {description}
+          </Typography>
+          <Box sx={{ marginTop: 1 }}>
+            {tags.map((tag, index) => (
+              <Chip key={index} label={tag} sx={{ marginRight: 0.5 }} />
+            ))}
+          </Box>
+        </CardContent>
+      </CardActionArea>
+    </Card>
   )
 }
 

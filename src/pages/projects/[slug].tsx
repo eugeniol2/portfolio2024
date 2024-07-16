@@ -1,10 +1,13 @@
 // pages/[slug].js
 import React from 'react'
 import { useRouter } from 'next/router'
-import { Box, Typography, Container, Chip } from '@mui/material'
+import { Box, Typography, Container, Chip, Stack } from '@mui/material'
 import { createClient } from 'src/prismicio'
 import { asText } from '@prismicio/client'
 import { Project } from 'src/feature/Projects/types/projectsType'
+
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { CustomCarousel } from 'src/feature/Projects/components/customCarousel'
 
 type Params = { uid: string }
 
@@ -16,17 +19,19 @@ const ProjectPage = ({ project }: { project: Project }) => {
   }
   console.log(project)
   return (
-    <Container>
-      <Box>
-        <Typography variant="h3" component="h1" gutterBottom>
-          {project.title}
-        </Typography>
-
-        <Typography variant="body1" sx={{ marginTop: '1rem' }}>
-          {project.description}
-        </Typography>
-      </Box>
-    </Container>
+    <>
+      <CustomCarousel images={project.images} />
+      <Stack>
+        <Box>
+          <Typography variant="h3" component="h1" gutterBottom>
+            {project.title}
+          </Typography>
+          <Typography variant="body1" sx={{ marginTop: '1rem' }}>
+            {project.description}
+          </Typography>
+        </Box>
+      </Stack>
+    </>
   )
 }
 
