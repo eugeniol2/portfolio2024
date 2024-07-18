@@ -94,6 +94,28 @@ interface ProjectDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#group
    */
   tags: prismic.GroupField<Simplify<ProjectDocumentDataTagsItem>>
+
+  /**
+   * project link field in *project*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: project.project_link
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  project_link: prismic.KeyTextField
+
+  /**
+   * github link field in *project*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: project.github_link
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  github_link: prismic.KeyTextField
 }
 
 /**

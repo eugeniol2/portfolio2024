@@ -24,7 +24,9 @@ export async function getStaticProps({ previewData }: { previewData: any }) {
         'project.project_description',
         'project.project_images',
         'project.card_image',
-        'project.tags'
+        'project.tags',
+        'project.project_link',
+        'project.github_link'
       ]
     })
 
@@ -33,7 +35,9 @@ export async function getStaticProps({ previewData }: { previewData: any }) {
       title: project.data.project_title ?? '',
       description: asText(project.data.project_description) ?? '',
       cardImage: project.data.card_image.url ?? '',
-      tags: project.data.tags.map(tag => tag.tag) ?? []
+      tags: project.data.tags.map(tag => tag.tag) ?? [],
+      projectUrl: project.data.project_link,
+      projectSourceCode: project.data.github_link
     }))
 
     return {

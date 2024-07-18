@@ -39,7 +39,7 @@
   ],
   "rules": {
     "@typescript-eslint/no-floating-promises": "off",
-    "no-console": "warn",
+    "no-console": "error",
     "prettier/prettier": [
       "error",
       {
