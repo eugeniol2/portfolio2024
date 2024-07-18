@@ -68,6 +68,20 @@
             }
           }
         }
+      },
+      "project_link": {
+        "type": "Text",
+        "config": {
+          "label": "project link",
+          "placeholder": ""
+        }
+      },
+      "github_link": {
+        "type": "Text",
+        "config": {
+          "label": "github link",
+          "placeholder": ""
+        }
       }
     }
   }

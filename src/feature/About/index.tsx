@@ -1,61 +1,25 @@
-import {
-  Box,
-  Fade,
-  Stack,
-  Typography,
-  useMediaQuery,
-  useTheme
-} from '@mui/material'
+import { Box, Fade, Stack, Typography } from '@mui/material'
 import React from 'react'
 
-import responsiveStyles from 'src/app/styles/responsive'
+import useDynamicStyles from 'src/app/hooks/useDynamicStyles'
 import images from 'src/images'
 
 const About = () => {
-  const theme = useTheme()
-  const isXs = useMediaQuery(theme.breakpoints.down('xs'))
-  const isSm = useMediaQuery(theme.breakpoints.down('sm'))
-  const isMd = useMediaQuery(theme.breakpoints.down('md'))
-
-  let styles = responsiveStyles.lgStyles
-  if (isXs) styles = responsiveStyles.xsStyles
-  else if (isSm) styles = responsiveStyles.smStyles
-  else if (isMd) styles = responsiveStyles.mdStyles
-
-  const textProps = {
-    marginTop: '16px',
-    textAlign: 'justify',
-    ...styles.typography
-  }
+  const styles = useDynamicStyles()
 
   return (
-    <Box
-      sx={{
-        display: 'flex',
-        flexDirection: styles.container.flexDirection,
-        justifyContent: styles.container.justifyContent,
-        alignItems: 'center',
-        height: '100%',
-        marginBottom: '10%',
-        marginRight: '5%',
-        padding: styles.container.padding
-      }}
-    >
-      {!isXs && (
+    <Box sx={styles.global.container}>
+      {!styles.isXs && (
         <Fade in={true} timeout={3000}>
           <Box
             component="img"
             src={images.selfie.src}
             alt="Selfie"
-            sx={{
-              borderRadius: '50%',
-              width: styles.image.width,
-              boxShadow: '0 4px 8px rgba(0,0,0,0.2)'
-            }}
+            sx={styles.about.image}
           />
         </Fade>
       )}
-      <Box width={isSm ? '100%' : '50%'}>
+      <Box sx={styles.global.box}>
         <Stack overflow="auto">
           <Fade in={true} timeout={1000}>
             <Typography variant="h2" textAlign="center">
@@ -63,7 +27,7 @@ const About = () => {
             </Typography>
           </Fade>
           <Fade in={true} timeout={1200}>
-            <Typography variant="h6" sx={textProps}>
+            <Typography variant="h6" sx={styles.global.text}>
               Sou de <b>Pernambuco, Carpina</b>, e em 2019 comecei os estudos
               para entrar em algum curso superior, e tive bastante interesse de
               ingressar na área de tecnologia, e assim consegui uma vaga na{' '}
@@ -73,7 +37,7 @@ const About = () => {
             </Typography>
           </Fade>
           <Fade in={true} timeout={1400}>
-            <Typography variant="h6" sx={textProps}>
+            <Typography variant="h6" sx={styles.global.text}>
               Com isso, peguei amor pela programação, especificamente,{' '}
               <b>desenvolvimento WEB</b>, com <b>React.js</b> e também{' '}
               <b>React Native</b>. Tenho um conhecimento básico sobre{' '}
@@ -87,7 +51,7 @@ const About = () => {
             </Typography>
           </Fade>
           <Fade in={true} timeout={1800}>
-            <Typography variant="h6" sx={textProps}>
+            <Typography variant="h6" sx={styles.global.text}>
               Meu objetivo em geral é conseguir uma{' '}
               <b>oportunidade de me aperfeiçoar</b> como desenvolvedor. Sei que
               o dia-a-dia ensina bastante coisa, assim como o{' '}
@@ -95,7 +59,7 @@ const About = () => {
             </Typography>
           </Fade>
           <Fade in={true} timeout={2000}>
-            <Typography variant="h6" sx={textProps}>
+            <Typography variant="h6" sx={styles.global.text}>
               Em termos gerais, pretendo seguir com o <b>desenvolvimento WEB</b>
               , assim como <b>mobile</b>, de forma colaborativa (<b>SCRUM</b>),
               e posteriormente me aprofundar e melhorar meus conhecimentos de{' '}

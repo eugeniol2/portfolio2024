@@ -9,6 +9,7 @@ import React, { useState } from 'react'
 import { Hydrate, QueryClient, QueryClientProvider } from 'react-query'
 import { Toaster } from 'sonner'
 
+import Header from 'src/app/components/header'
 import Layout from 'src/app/components/layout'
 import createEmotionCache from 'src/app/createEmotionCache'
 import { ThemeComponent } from 'src/app/theme'
@@ -40,6 +41,7 @@ function MyApp({
                 position="bottom-center"
               />
               <ConfigProvider locale={ptBR}>
+                <Header />
                 <Layout>
                   <Component {...pageProps} />
                 </Layout>

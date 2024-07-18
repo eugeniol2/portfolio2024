@@ -1,38 +1,72 @@
-import { Box, Grid, Slide } from '@mui/material'
+import { Box, Stack, Typography } from '@mui/material'
+import { Image } from 'antd'
 import React from 'react'
 
-import CustomCard from './components/customCard'
 import { type ProjectsType } from './types/projectsType'
 
 interface ProjectsProps extends ProjectsType {}
 
 const Projects: React.FC<ProjectsProps> = ({ projects }) => {
-  console.log('projects', projects)
   return (
-    <Box sx={{ padding: 2 }}>
-      <Grid
-        container
-        spacing={1}
-        justifyContent="center"
-        sx={{ overflowX: 'hidden' }}
-      >
-        {projects.map((project, index) => (
-          <Grid item key={index} xs={12} sm={6} md={4} lg={3}>
-            <Slide direction="left" in={true} timeout={500 + index * 200}>
-              <Box>
-                <CustomCard
-                  title={project.title}
-                  description={project.description}
-                  image={project.cardImage}
-                  tags={project.tags}
-                  slug={project.uid}
-                />
-              </Box>
-            </Slide>
-          </Grid>
-        ))}
-      </Grid>
-    </Box>
+    <Stack
+      flexDirection="column"
+      alignItems="center"
+      sx={{ padding: 2, marginX: '20%', marginTop: '36px' }}
+    >
+      <Typography variant="h1">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci
+        dignissimos, sunt cumque ratione doloribus praesentium pariatur at
+        fugiat quis quaerat porro nihil molestiae officia soluta, tempore odio,
+        obcaecati excepturi ullam.
+      </Typography>
+      <Typography variant="h1">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci
+        dignissimos, sunt cumque ratione doloribus praesentium pariatur at
+        fugiat quis quaerat porro nihil molestiae officia soluta, tempore odio,
+        obcaecati excepturi ullam.
+      </Typography>
+      <Typography variant="h1">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci
+        dignissimos, sunt cumque ratione doloribus praesentium pariatur at
+        fugiat quis quaerat porro nihil molestiae officia soluta, tempore odio,
+        obcaecati excepturi ullam.
+      </Typography>
+      <Typography variant="h1">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci
+        dignissimos, sunt cumque ratione doloribus praesentium pariatur at
+        fugiat quis quaerat porro nihil molestiae officia soluta, tempore odio,
+        obcaecati excepturi ullam.
+      </Typography>
+      <Typography variant="h1">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci
+        dignissimos, sunt cumque ratione doloribus praesentium pariatur at
+        fugiat quis quaerat porro nihil molestiae officia soluta, tempore odio,
+        obcaecati excepturi ullam.
+      </Typography>
+      <Typography variant="h1">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci
+        dignissimos, sunt cumque ratione doloribus praesentium pariatur at
+        fugiat quis quaerat porro nihil molestiae officia soluta, tempore odio,
+        obcaecati excepturi ullam.
+      </Typography>
+      <Typography variant="h1">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci
+        dignissimos, sunt cumque ratione doloribus praesentium pariatur at
+        fugiat quis quaerat porro nihil molestiae officia soluta, tempore odio,
+        obcaecati excepturi ullam.
+      </Typography>
+      <Typography variant="h1">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci
+        dignissimos, sunt cumque ratione doloribus praesentium pariatur at
+        fugiat quis quaerat porro nihil molestiae officia soluta, tempore odio,
+        obcaecati excepturi ullam.
+      </Typography>
+      {projects.map(project => (
+        <Box key={project.uid}>
+          <Image src={project.cardImage} height="auto" width="100%" />
+        </Box>
+      ))}
+    </Stack>
   )
 }
 
