@@ -2,19 +2,29 @@
 import { Fade, Typography } from '@mui/material'
 import React from 'react'
 
-const Logo = () => {
-  return (
+interface LogoProps {
+  fade?: boolean
+}
+
+const Logo: React.FC<LogoProps> = ({ fade }) => {
+  const logoContent = (
+    <Typography
+      component="div"
+      fontFamily="Shadows Into Light"
+      fontSize="36px"
+      fontWeight={200}
+      sx={{ color: 'grey.900' }}
+    >
+      Eugênio Araújo
+    </Typography>
+  )
+
+  return fade ? (
     <Fade in={true} timeout={3000}>
-      <Typography
-        component="div"
-        fontFamily="Shadows Into Light"
-        fontSize="48px"
-        fontWeight={200}
-        sx={{ color: 'grey.800' }}
-      >
-        Eugênio Araújo
-      </Typography>
+      {logoContent}
     </Fade>
+  ) : (
+    logoContent
   )
 }
 

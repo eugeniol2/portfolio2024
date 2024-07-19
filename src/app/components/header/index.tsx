@@ -2,6 +2,7 @@
 import { Stack, Tab, Tabs } from '@mui/material'
 import { useRouter } from 'next/router'
 import React, { useEffect } from 'react'
+import Logo from '../logo'
 
 const Header = () => {
   const router = useRouter()
@@ -21,12 +22,9 @@ const Header = () => {
 
   return (
     <>
-      <Stack
-        flexDirection="row"
-        alignItems="center"
-        justifyContent="space-between"
-      >
-        <Tabs value={value} onChange={handleChange} sx={{ marginLeft: 'auto' }}>
+      <Stack flexDirection="row" alignItems="center" justifyContent="center">
+        {/* <Logo /> */}
+        <Tabs value={value} onChange={handleChange}>
           {['Home', 'About Me', 'Projects', 'Contact'].map((label, index) => (
             <Tab key={index} label={label} disableRipple />
           ))}

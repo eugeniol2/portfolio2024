@@ -5,7 +5,7 @@ export const GlobalStyling = (theme: any) => {
     body: {
       width: '100%',
       height: '75vh',
-      backgroundImage: `url(${images.background.src})`,
+      backgroundColor: 'rgba(243,243,242, 1)',
       backgroundSize: 'cover',
       backgroundPosition: 'center',
       backgroundAttachment: 'fixed',

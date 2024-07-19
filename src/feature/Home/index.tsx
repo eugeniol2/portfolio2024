@@ -1,15 +1,19 @@
 import { Box, Fade, Stack, Typography } from '@mui/material'
 import React from 'react'
 
-import Logo from 'src/app/components/logo'
 import useDynamicStyles from 'src/app/hooks/useDynamicStyles'
+import { AnimatedText } from './animation/animatedText'
 
 const Home = () => {
   const styles = useDynamicStyles()
 
   return (
     <Stack sx={styles.global.container}>
-      {!styles.isXs && <Logo />}
+      <Fade in={true} timeout={1000}>
+        <Box>
+          <AnimatedText />
+        </Box>
+      </Fade>
       <Box sx={styles.global.box}>
         <Stack overflow="auto">
           <Fade in={true} timeout={1000}>
