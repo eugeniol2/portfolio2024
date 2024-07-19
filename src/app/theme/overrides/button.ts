@@ -6,21 +6,21 @@ const Button = {
   MuiButton: {
     variants: [
       {
-        props: { color: 'primary', variant: 'contained' }, // Add variant: 'contained'
+        props: { color: 'primary', variant: 'contained' },
         style: ({ theme }: { theme: Theme }) => ({
-          color: theme.palette.primary.light,
-          backgroundColor: theme.palette.primary.main, // Change the background color
+          color: theme.palette.primary.contrastText,
+          backgroundColor: theme.palette.primary.main,
           '&:hover': {
-            backgroundColor: hexToRGBA(theme.palette.primary.main, 0.08)
+            backgroundColor: hexToRGBA(theme.palette.primary.main, 0.8)
           }
         })
       },
       {
-        props: { color: 'secondary', variant: 'outlined' }, // Add variant: 'contained'
+        props: { color: 'primary', variant: 'outlined' },
         style: ({ theme }: { theme: Theme }) => ({
           color: theme.palette.primary.main,
           '&:hover': {
-            backgroundColor: hexToRGBA(theme.palette.secondary.main, 0.08)
+            backgroundColor: hexToRGBA(theme.palette.primary.main, 0.1)
           }
         })
       }

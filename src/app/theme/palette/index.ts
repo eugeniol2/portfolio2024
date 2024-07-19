@@ -30,7 +30,7 @@ const DefaultPalette = (skin: string): Palette => {
       white: whiteColor
     },
     primary: {
-      main: '#8479F2',
+      main: '#212121',
       contrastText: whiteColor
     },
     secondary: {
