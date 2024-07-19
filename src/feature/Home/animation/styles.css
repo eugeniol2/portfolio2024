@@ -1,0 +1,67 @@
+.circle {
+  stroke-dasharray: 358;
+  stroke-dashoffset: 358; 
+  animation: 2s fillCircles linear forwards;
+  animation-delay: 1s; 
+
+}
+
+@keyframes fillCircles {
+  0%{
+    stroke-dashoffset: 358;
+  }
+  100%{
+    stroke-dashoffset: 0;
+  }
+}
+
+#firstLine {
+  stroke-dasharray: 77;
+  stroke-dashoffset: 77; 
+  animation: fillFirstLine 500ms linear forwards;
+  animation-delay: 3s; 
+}
+
+@keyframes fillFirstLine {
+  0%{
+    stroke-dashoffset: 77;
+  }
+  100%{
+    stroke-dashoffset: 0;
+  }
+}
+
+#secondLine {
+  stroke-dasharray: 115;
+  stroke-dashoffset: 115; 
+  animation: fillSecondLine 400ms linear forwards;
+  animation-delay: 4s; 
+}
+
+@keyframes fillSecondLine {
+  0%{
+    stroke-dashoffset: 115;
+  }
+  100%{
+    stroke-dashoffset: 0;
+  }
+}
+
+#thirdLine {
+  stroke-dasharray: 244;
+  stroke-dashoffset: 244; 
+  animation: fillThirdLine 300ms linear forwards;
+  animation-delay: 5s; 
+}
+
+@keyframes fillThirdLine {
+  0%{
+    stroke-dashoffset: 244;
+  }
+  100%{
+    stroke-dashoffset: 0;
+  }
+}
+
+
+

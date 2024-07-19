@@ -21,12 +21,8 @@ const Header = () => {
 
   return (
     <>
-      <Stack
-        flexDirection="row"
-        alignItems="center"
-        justifyContent="space-between"
-      >
-        <Tabs value={value} onChange={handleChange} sx={{ marginLeft: 'auto' }}>
+      <Stack flexDirection="row" alignItems="center" justifyContent="center">
+        <Tabs value={value} onChange={handleChange}>
           {['Home', 'About Me', 'Projects', 'Contact'].map((label, index) => (
             <Tab key={index} label={label} disableRipple />
           ))}

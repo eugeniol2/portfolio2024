@@ -10,7 +10,7 @@ const About = () => {
   return (
     <Box sx={styles.global.container}>
       {!styles.isXs && (
-        <Fade in={true} timeout={3000}>
+        <Fade in={true} timeout={1000}>
           <Box
             component="img"
             src={images.selfie.src}

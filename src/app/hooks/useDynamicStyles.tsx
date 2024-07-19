@@ -28,7 +28,7 @@ const useDynamicStyles = () => {
         height: '100%',
         alignItems: 'center',
         marginBottom: '10%',
-        marginRight: '5%',
+        marginX: '5%',
         padding: styles.container.padding
       },
       box: {
