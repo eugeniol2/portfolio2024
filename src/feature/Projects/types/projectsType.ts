@@ -5,6 +5,8 @@ export interface Project {
   title: string
   description: string
   cardImage: string
+  projectUrl: string
+  projectSourceCode: string
   image: string[]
   tags: string[]
 }
