@@ -1,5 +1,3 @@
-import images from 'src/images'
-
 export const GlobalStyling = (theme: any) => {
   return {
     body: {

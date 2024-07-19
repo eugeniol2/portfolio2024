@@ -2,6 +2,7 @@ import { Box, Fade, Stack, Typography } from '@mui/material'
 import React from 'react'
 
 import useDynamicStyles from 'src/app/hooks/useDynamicStyles'
+
 import { AnimatedText } from './animation/animatedText'
 
 const Home = () => {
