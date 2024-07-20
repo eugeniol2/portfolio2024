@@ -1,9 +1,9 @@
-import { Box, Button, Stack, Typography, Chip } from '@mui/material'
 import GitHubIcon from '@mui/icons-material/GitHub'
 import PublicIcon from '@mui/icons-material/Public'
-
+import { Box, Button, Stack, Typography } from '@mui/material'
 import { Image } from 'antd'
 import React from 'react'
+
 import { ModalButton } from './modalButton'
 
 interface ProjectCardProps {

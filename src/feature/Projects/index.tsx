@@ -1,8 +1,8 @@
 import { Stack } from '@mui/material'
 import React from 'react'
 
-import { type ProjectsType } from './types/projectsType'
 import ProjectCard from './components/projectCard'
+import { type ProjectsType } from './types/projectsType'
 
 interface ProjectsProps extends ProjectsType {}
 

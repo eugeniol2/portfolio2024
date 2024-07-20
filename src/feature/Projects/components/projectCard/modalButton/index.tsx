@@ -1,9 +1,9 @@
-import * as React from 'react'
-import Box from '@mui/material/Box'
-import CodeIcon from '@mui/icons-material/Code'
 import CloseIcon from '@mui/icons-material/Close'
+import CodeIcon from '@mui/icons-material/Code'
+import { Button, Chip, IconButton, Popper } from '@mui/material'
+import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'
-import { Button, Chip, Popper, IconButton } from '@mui/material'
+import * as React from 'react'
 
 interface ModalButtonProps {
   tags: string[]
@@ -18,7 +18,9 @@ export const ModalButton: React.FC<ModalButtonProps> = ({ tags }) => {
     setOpen(prev => !prev)
   }
 
-  const handleClose = () => setOpen(false)
+  const handleClose = () => {
+    setOpen(false)
+  }
 
   return (
     <Box>

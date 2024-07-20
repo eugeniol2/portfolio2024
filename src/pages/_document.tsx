@@ -11,9 +11,9 @@ import Document, {
 import * as React from 'react'
 
 import createEmotionCache from 'src/app/createEmotionCache'
+import images from 'src/images'
 
 import { type MyAppProps } from './_app'
-import images from 'src/images'
 
 interface MyDocumentProps extends DocumentProps {
   emotionStyleTags: JSX.Element[]

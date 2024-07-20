@@ -1,7 +1,5 @@
 import './styles.css'
 
-import { Fade } from '@mui/material'
-
 export const AnimatedText = ({ width }: { width: string }) => {
   return (
     <svg
