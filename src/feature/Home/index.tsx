@@ -12,7 +12,7 @@ const Home = () => {
     <Stack sx={styles.global.container}>
       <Fade in={true} timeout={1000}>
         <Box>
-          <AnimatedText />
+          <AnimatedText width={styles.home.image.width} />
         </Box>
       </Fade>
       <Box sx={styles.global.box}>

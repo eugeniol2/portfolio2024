@@ -1,14 +1,19 @@
+import defaultStyles from './default'
+
 const xsStyles = {
+  ...defaultStyles,
   container: {
+    ...defaultStyles.container,
     flexDirection: 'column',
-    padding: '0 16px',
+    marginX: '16px',
     justifyContent: 'center'
   },
-  typography: {
-    wordBreak: 'break-word'
+  box: {
+    width: '100%'
   },
   image: {
-    width: '50%'
+    aboutImage: '0',
+    homeImage: '0'
   }
 }
 
