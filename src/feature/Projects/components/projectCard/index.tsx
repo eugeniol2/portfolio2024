@@ -26,26 +26,21 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   return (
     <Box
       sx={{
-        marginBottom: '32px',
+        paddingBottom: '32px',
         textAlign: 'left',
-        width: '100%',
+        width: '75%',
         display: 'flex',
         flexDirection: 'column',
         gap: '24px'
       }}
     >
       <Typography variant="h1">{title}</Typography>
-      <Box
-        sx={{
-          position: 'relative',
-          display: 'inline-block',
-          overflow: 'hidden',
-          borderRadius: '8px',
-          boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)'
-        }}
-      >
-        <Image src={cardImage} height="auto" width="100%" preview={false} />
+      <Box display="flex" alignContent="center" justifyContent="center">
+        <Box>
+          <Image src={cardImage} height="auto" width="100%" preview={false} />
+        </Box>
       </Box>
+
       <Typography variant="body1">{description}</Typography>
       <Box display="flex" justifyContent="space-between">
         <Stack flexDirection="row" gap="16px">

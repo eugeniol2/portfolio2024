@@ -3,17 +3,18 @@ import React from 'react'
 
 import { type ProjectsType } from './types/projectsType'
 import ProjectCard from './components/projectCard'
-import useDynamicStyles from 'src/app/hooks/useDynamicStyles'
 
 interface ProjectsProps extends ProjectsType {}
 
 const Projects: React.FC<ProjectsProps> = ({ projects }) => {
-  const styles = useDynamicStyles()
-
   return (
     <Stack
+      flexDirection="column"
+      alignItems="center"
       sx={{
-        marginX: '32px'
+        marginX: '64px',
+        gap: '64px',
+        paddingTop: '64px'
       }}
     >
       {projects.map(project => (
