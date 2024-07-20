@@ -2,11 +2,11 @@ import './styles.css'
 
 import { Fade } from '@mui/material'
 
-export const AnimatedText = () => {
+export const AnimatedText = ({ width }: { width: string }) => {
   return (
     <svg
-      width="501"
-      height="355"
+      width={width}
+      height="auto"
       viewBox="0 0 501 355"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

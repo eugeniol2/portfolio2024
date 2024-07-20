@@ -1,14 +1,18 @@
+import defaultStyles from './default'
+
 const lgStyles = {
+  ...defaultStyles,
   container: {
-    flexDirection: 'row',
-    padding: '0 64px',
-    justifyContent: 'space-between'
+    ...defaultStyles.container,
+    flexDirection: 'column',
+    justifyContent: 'space-evenly'
   },
-  typography: {
-    wordBreak: 'break-word'
+  box: {
+    width: '100%'
   },
   image: {
-    width: '20%'
+    ...defaultStyles.image,
+    homeImage: '400px'
   }
 }
 

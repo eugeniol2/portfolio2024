@@ -24,10 +24,17 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   tags
 }) => {
   return (
-    <Box sx={{ marginBottom: '32px', textAlign: 'left' }}>
-      <Typography variant="h1" sx={{ marginBottom: '16px' }}>
-        {title}
-      </Typography>
+    <Box
+      sx={{
+        marginBottom: '32px',
+        textAlign: 'left',
+        width: '100%',
+        display: 'flex',
+        flexDirection: 'column',
+        gap: '24px'
+      }}
+    >
+      <Typography variant="h1">{title}</Typography>
       <Box
         sx={{
           position: 'relative',
@@ -39,9 +46,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
       >
         <Image src={cardImage} height="auto" width="100%" preview={false} />
       </Box>
-      <Typography variant="body1" sx={{ marginBottom: '16px' }}>
-        {description}
-      </Typography>
+      <Typography variant="body1">{description}</Typography>
       <Box display="flex" justifyContent="space-between">
         <Stack flexDirection="row" gap="16px">
           <Button

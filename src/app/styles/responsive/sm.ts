@@ -1,14 +1,22 @@
+import defaultStyles from './default'
+
 const smStyles = {
+  ...defaultStyles,
   container: {
+    ...defaultStyles.container,
     flexDirection: 'column',
     justifyContent: 'space-evenly',
-    padding: '0 16px'
+    marginX: '16px'
   },
   typography: {
     wordBreak: 'break-word'
   },
+  box: {
+    width: '100%'
+  },
   image: {
-    width: '40%'
+    aboutImage: '250px',
+    homeImage: '300px'
   }
 }
 

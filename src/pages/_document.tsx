@@ -13,6 +13,7 @@ import * as React from 'react'
 import createEmotionCache from 'src/app/createEmotionCache'
 
 import { type MyAppProps } from './_app'
+import images from 'src/images'
 
 interface MyDocumentProps extends DocumentProps {
   emotionStyleTags: JSX.Element[]
@@ -23,13 +24,39 @@ export default function MyDocument({ emotionStyleTags }: MyDocumentProps) {
     <Html lang="pt-br">
       <Head>
         <meta name="emotion-insertion-point" content="" />
+        <meta name="title" content="Eugênio Araújo portfolio" />
+        <meta name="description" content="Portfolio de eugenio araújo" />
+        <meta name="author" content="Eugênio Dorneles das Chagas Araújo" />
+        <meta
+          name="keywords"
+          content="Desenvolvedor Front-End, Programador Web, Engenharia de Software, Desenvolvimento Web, React.js, Next.js, React Native, JavaScript, HTML5, CSS3, TypeScript, Material-UI, Redux, Tailwind CSS, Bootstrap, Git, Webpack, Babel, Design Responsivo, Desenvolvimento Mobile, Desenvolvimento Full-Stack, API Integration, Otimização de Desempenho, Projetos de Código Aberto, Portfólio de Programador, Freelance Developer, Iniciante em Desenvolvimento Web, Portfólio de Programação"
+        />
+
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link
           href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700&family=Roboto:wght@400;500;700&family=Shadows+Into+Light&display=swap"
           rel="stylesheet"
         />
-        <link rel="shortcut icon" href="/images/favicon.ico" />
+        <link rel="shortcut icon" href={images.favIconData.favIcon.src} />
+        <link
+          rel="apple-touch-icon"
+          sizes="180x180"
+          href={images.favIconData.favIconApple.src}
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="32x32"
+          href={images.favIconData.favIcon32x32.src}
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="16x16"
+          href={images.favIconData.favIcon16x16.src}
+        />
+
         {emotionStyleTags}
       </Head>
       <body>

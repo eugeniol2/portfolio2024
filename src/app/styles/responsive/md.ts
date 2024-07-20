@@ -1,14 +1,14 @@
+import defaultStyles from './default'
+
 const mdStyles = {
+  ...defaultStyles,
   container: {
-    flexDirection: 'row',
-    padding: '0 32px',
-    justifyContent: 'space-between'
+    ...defaultStyles.container,
+    flexDirection: 'column',
+    justifyContent: 'space-evenly'
   },
-  typography: {
-    wordBreak: 'break-word'
-  },
-  image: {
-    width: '40%'
+  box: {
+    width: '100%'
   }
 }
 
