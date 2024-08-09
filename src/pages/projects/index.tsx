@@ -41,7 +41,8 @@ export async function getStaticProps({ previewData }: { previewData: any }) {
     }))
 
     return {
-      props: { projects }
+      props: { projects },
+      revalidate: 1440
     }
   } catch (error) {
     return {
