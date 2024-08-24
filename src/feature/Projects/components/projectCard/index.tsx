@@ -1,6 +1,6 @@
 import GitHubIcon from '@mui/icons-material/GitHub'
 import PublicIcon from '@mui/icons-material/Public'
-import { Box, Button, Stack, Typography } from '@mui/material'
+import { Box, Button, Paper, Stack, Typography } from '@mui/material'
 import { Image } from 'antd'
 import React from 'react'
 
@@ -41,19 +41,30 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
         </Box>
       </Box>
 
-      <Typography variant="body1">{description}</Typography>
+      <Typography variant="body1" textAlign={{ xs: 'center', lg: 'unset' }}>
+        {description}
+      </Typography>
       <Box display="flex" justifyContent="space-between">
         <Stack flexDirection="row" gap="16px">
-          <Button
-            variant="contained"
-            color="primary"
-            href={projectSourceCode}
-            target="_blank"
-            endIcon={<GitHubIcon />}
-            disabled={!projectSourceCode}
+          <Paper
+            sx={{
+              display: { lg: 'block', xs: 'none' },
+              boxShadow: 'none',
+              border: 'none',
+              background: 'none'
+            }}
           >
-            Code
-          </Button>
+            <Button
+              variant="contained"
+              color="primary"
+              href={projectSourceCode}
+              target="_blank"
+              endIcon={<GitHubIcon />}
+              disabled={!projectSourceCode}
+            >
+              Code
+            </Button>
+          </Paper>
           <Button
             variant="outlined"
             color="primary"

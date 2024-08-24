@@ -12,7 +12,7 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
       flexDirection="column"
       alignItems="center"
       sx={{
-        marginX: '64px',
+        marginX: { lg: '64px' },
         gap: '64px',
         paddingTop: '64px'
       }}
