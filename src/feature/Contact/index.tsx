@@ -2,6 +2,7 @@ import GitHubIcon from '@mui/icons-material/GitHub'
 import LinkedInIcon from '@mui/icons-material/LinkedIn'
 import {
   Box,
+  Button,
   Fade,
   Link,
   Stack,
@@ -114,6 +115,20 @@ const Contact = () => {
               </Link>
             </Box>
           </Box>
+        </Fade>
+        <Fade in={true} timeout={1800}>
+          <Button
+            variant="outlined"
+            sx={{
+              marginTop: '20px',
+              alignSelf: 'center'
+            }}
+            href="https://drive.google.com/file/d/11EBj0ba1tf04kvEieBqgYychH-ZcaCN7/view?usp=drive_link"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Currículo
+          </Button>
         </Fade>
       </Stack>
     </Box>
