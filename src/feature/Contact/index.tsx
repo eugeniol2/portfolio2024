@@ -123,7 +123,7 @@ const Contact = () => {
               marginTop: '20px',
               alignSelf: 'center'
             }}
-            href="https://drive.google.com/file/d/11EBj0ba1tf04kvEieBqgYychH-ZcaCN7/view?usp=drive_link"
+            href="https://drive.google.com/file/d/1DGJYvU6a0QuYme7M0tAPAZsm4UuucRfc/view?usp=sharing"
             target="_blank"
             rel="noopener noreferrer"
           >
