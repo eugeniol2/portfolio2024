@@ -1,4 +1,4 @@
-import { Box, Button, Fade, Stack, Typography } from '@mui/material'
+import { Box, Fade, Stack, Typography } from '@mui/material'
 import React from 'react'
 
 import useDynamicStyles from 'src/app/hooks/useDynamicStyles'

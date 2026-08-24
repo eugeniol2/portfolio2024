@@ -36,9 +36,12 @@ export const createClient = (config: prismicNext.CreateClientConfig = {}) => {
   const client = prismic.createClient(repositoryName, {
     accessToken: process.env.PRISMIC_ACCESS_TOKEN,
     routes,
+    // `cache: 'force-cache'` + tags so valem no App Router, e o `revalidateTag`
+    // que os invalidava nao existe mais. Em producao isso congelava a resposta
+    // da API (inclusive o master ref) nas rotas de preview.
     fetchOptions:
       process.env.NODE_ENV === 'production'
-        ? { next: { tags: ['prismic'] }, cache: 'force-cache' }
+        ? { next: { revalidate: 60 } }
         : { next: { revalidate: 5 } },
     ...config
   })

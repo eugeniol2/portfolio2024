@@ -4,6 +4,12 @@ import Projects from 'src/feature/Projects'
 import { type ProjectsType } from 'src/feature/Projects/types/projectsType'
 import { createClient } from 'src/prismicio'
 
+/**
+ * Rede de seguranca do ISR. A atualizacao imediata vem do webhook do
+ * Prismic em `/api/revalidate`.
+ */
+const REVALIDATE_IN_SECONDS = 60
+
 interface ProjectsProps extends ProjectsType {}
 
 const projects: React.FC<ProjectsProps> = ({ projects }) => {
@@ -42,11 +48,17 @@ export async function getStaticProps({ previewData }: { previewData: any }) {
 
     return {
       props: { projects },
-      revalidate: 1440
+      revalidate: REVALIDATE_IN_SECONDS
     }
   } catch (error) {
+    // eslint-disable-next-line no-console
+    console.error('[projects] falha ao buscar projetos no Prismic', error)
+
+    // Precisa devolver `revalidate` tambem aqui: sem isso a pagina vira
+    // estatica permanente e nunca mais se recupera de uma falha.
     return {
-      props: { projects: [] }
+      props: { projects: [] },
+      revalidate: REVALIDATE_IN_SECONDS
     }
   }
 }
