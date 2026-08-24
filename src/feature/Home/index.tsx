@@ -24,33 +24,33 @@ const Home = () => {
           </Fade>
           <Fade in={true} timeout={1200}>
             <Typography variant="h6" sx={styles.global.text}>
-              Gostaria de compartilhar um pouco sobre minhas{' '}
-              <b>experiências e jornada</b>. Resido atualmente em{' '}
-              <b>Carpina, Pernambuco</b>, e estou cursando{' '}
-              <b>Sistemas de Informação na UFRPE</b>.
+              Sou <b>desenvolvedor front-end</b> e estudante de{' '}
+              <b>Sistemas de Informação na UFRPE</b>. Moro em{' '}
+              <b>Carpina, Pernambuco</b>, e estou disponível para trabalho{' '}
+              <b>remoto</b>.
             </Typography>
           </Fade>
 
           <Fade in={true} timeout={1400}>
             <Typography variant="h6" sx={styles.global.text}>
-              Além disso, estou trabalhando em{' '}
-              <b>pequenos projetos freelance</b> como desenvolvedor júnior{' '}
-              <b>front-end</b>, utilizando tecnologias como <b>React JS</b>.
-              Todo o processo de desenvolvimento é feito utilizando{' '}
-              <b>metodologias Scrum</b>, pois acredito que sem elas, o
-              desenvolvimento de qualquer software ficaria bastante
-              desorganizado.
+              Construo aplicações <b>web e mobile</b> com <b>React</b>,{' '}
+              <b>Next.js</b>, <b>React Native</b> e <b>TypeScript</b>, com foco
+              em interfaces responsivas e componentes reutilizáveis. Como{' '}
+              <b>freelancer</b>, entreguei projetos de ponta a ponta — do
+              levantamento de requisitos com o cliente até a publicação —
+              trabalhando de forma colaborativa com <b>Scrum</b>.
             </Typography>
           </Fade>
 
           <Fade in={true} timeout={1600}>
             <Typography variant="h6" sx={styles.global.text}>
-              Recentemente, trabalhei em um{' '}
-              <b>projeto mobile com React Native</b>, o que me deixou bastante
-              empolgado com a área <b>mobile</b>. Estou em busca de uma{' '}
-              <b>oportunidade de emprego mais formal</b> para continuar
-              desenvolvendo minhas habilidades e aprendendo mais sobre
-              tecnologia.
+              Fora do front-end, venho me aprofundando em{' '}
+              <b>análise de dados</b> com <b>Python</b> — meu <b>TCC</b> aplica
+              modelos supervisionados à detecção de anomalias em logs de
+              auditoria. Estou{' '}
+              <b>aberto a oportunidades de estágio ou júnior</b> em front-end —
+              dá uma olhada nos meus <b>projetos</b> e fique à vontade para
+              entrar em <b>contato</b>.
             </Typography>
           </Fade>
         </Stack>
