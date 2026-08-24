@@ -53,7 +53,7 @@ const About = () => {
               web e mobile do levantamento de requisitos até a publicação, e no
               meio acadêmico desenvolvi o <b>Lix0</b>, app de missões de coleta
               de resíduos. Quando o projeto pede, também trabalho no back-end
-              com Node.js, Prisma e PostgreSQL. 
+              com Node.js, Prisma e PostgreSQL.
             </Typography>
           </Fade>
           <Fade in={true} timeout={1600}>
