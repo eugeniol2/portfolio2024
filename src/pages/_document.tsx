@@ -24,12 +24,18 @@ export default function MyDocument({ emotionStyleTags }: MyDocumentProps) {
     <Html lang="pt-br">
       <Head>
         <meta name="emotion-insertion-point" content="" />
-        <meta name="title" content="Eugênio Araújo portfolio" />
-        <meta name="description" content="Portfolio de eugenio araújo" />
+        <meta
+          name="title"
+          content="Eugênio Araújo | Desenvolvedor Full-Stack"
+        />
+        <meta
+          name="description"
+          content="Portfólio de Eugênio Dorneles das Chagas Araújo, desenvolvedor full-stack com React, Next.js, TypeScript, Node.js e PostgreSQL."
+        />
         <meta name="author" content="Eugênio Dorneles das Chagas Araújo" />
         <meta
           name="keywords"
-          content="Desenvolvedor Front-End, Programador Web, Engenharia de Software, Desenvolvimento Web, React.js, Next.js, React Native, JavaScript, HTML5, CSS3, TypeScript, Material-UI, Redux, Tailwind CSS, Bootstrap, Git, Webpack, Babel, Design Responsivo, Desenvolvimento Mobile, Desenvolvimento Full-Stack, API Integration, Otimização de Desempenho, Projetos de Código Aberto, Portfólio de Programador, Freelance Developer, Iniciante em Desenvolvimento Web, Portfólio de Programação"
+          content="Desenvolvedor Full-Stack, Desenvolvedor Web, Desenvolvimento Mobile, React.js, Next.js, React Native, TypeScript, JavaScript, HTML5, CSS3, Material UI, Node.js, Express.js, Prisma ORM, PostgreSQL, APIs REST, Zod, Vitest, Docker, Git, Design Responsivo, Portfólio de Programador, Freelance Developer"
         />
 
         <link rel="preconnect" href="https://fonts.googleapis.com" />

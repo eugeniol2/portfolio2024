@@ -5,6 +5,7 @@ import { ConfigProvider } from 'antd'
 import ptBR from 'antd/lib/locale/pt_BR'
 import { Provider } from 'jotai'
 import { type AppProps } from 'next/app'
+import Head from 'next/head'
 import React, { useState } from 'react'
 import { Hydrate, QueryClient, QueryClientProvider } from 'react-query'
 import { Toaster } from 'sonner'
@@ -34,6 +35,13 @@ function MyApp({
         <Hydrate state={pageProps.dehydratedState}>
           <CacheProvider value={emotionCache}>
             <ThemeComponent>
+              <Head>
+                <title>Eugênio Araújo | Desenvolvedor Full-Stack</title>
+                <meta
+                  name="viewport"
+                  content="width=device-width, initial-scale=1"
+                />
+              </Head>
               <Toaster
                 richColors
                 closeButton

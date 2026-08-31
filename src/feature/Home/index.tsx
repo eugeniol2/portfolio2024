@@ -24,32 +24,31 @@ const Home = () => {
           </Fade>
           <Fade in={true} timeout={1200}>
             <Typography variant="h6" sx={styles.global.text}>
-              Sou <b>desenvolvedor front-end</b> e estudante de{' '}
-              <b>Sistemas de Informação na UFRPE</b>. Moro em{' '}
-              <b>Carpina, Pernambuco</b>, e estou disponível para trabalho{' '}
-              <b>remoto</b>.
+              Sou <b>desenvolvedor full-stack</b> e estudante de{' '}
+              <b>Sistemas de Informação na UFRPE</b>, com conclusão prevista
+              para <b>2027</b>. Moro em <b>Carpina, Pernambuco</b>, e estou
+              disponível para trabalho <b>remoto</b>.
             </Typography>
           </Fade>
 
           <Fade in={true} timeout={1400}>
             <Typography variant="h6" sx={styles.global.text}>
-              Construo aplicações <b>web e mobile</b> com <b>React</b>,{' '}
-              <b>Next.js</b>, <b>React Native</b> e <b>TypeScript</b>, com foco
-              em interfaces responsivas e componentes reutilizáveis. Como{' '}
-              <b>freelancer</b>, entreguei projetos de ponta a ponta — do
-              levantamento de requisitos com o cliente até a publicação —
-              trabalhando de forma colaborativa com <b>Scrum</b>.
+              No front-end construo aplicações <b>web e mobile</b> com{' '}
+              <b>React</b>, <b>Next.js</b>, <b>React Native</b> e{' '}
+              <b>TypeScript</b>, escrevendo componentes reutilizáveis e
+              interfaces responsivas. No back-end trabalho com <b>Node.js</b>,{' '}
+              <b>Express</b>, <b>Prisma</b> e <b>PostgreSQL</b>, construindo
+              APIs REST com modelagem de dados, controle transacional, validação
+              de entrada e testes automatizados.
             </Typography>
           </Fade>
 
           <Fade in={true} timeout={1600}>
             <Typography variant="h6" sx={styles.global.text}>
-              Fora do front-end, venho me aprofundando em{' '}
-              <b>análise de dados</b> com <b>Python</b> — meu <b>TCC</b> aplica
-              modelos supervisionados à detecção de anomalias em logs de
-              auditoria. Estou{' '}
-              <b>aberto a oportunidades de estágio ou júnior</b> em front-end —
-              dá uma olhada nos meus <b>projetos</b> e fique à vontade para
+              Como <b>freelancer</b>, entreguei projetos de ponta a ponta, do
+              levantamento de requisitos com o cliente até a publicação. Busco{' '}
+              <b>estágio ou posição júnior</b> em desenvolvimento de software.
+              Dá uma olhada nos meus <b>projetos</b> e fique à vontade para
               entrar em <b>contato</b>.
             </Typography>
           </Fade>

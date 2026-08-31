@@ -46,25 +46,26 @@ const About = () => {
           </Fade>
           <Fade in={true} timeout={1400}>
             <Typography variant="h6" sx={styles.global.text}>
-              Minha atuação é em <b>desenvolvimento front-end</b>, com{' '}
-              <b>React</b>, <b>React Native</b>, <b>Next.js</b> e{' '}
+              Minha atuação é em <b>desenvolvimento full-stack</b>. No front-end
+              trabalho com <b>React</b>, <b>Next.js</b>, <b>React Native</b> e{' '}
               <b>TypeScript</b>, escrevendo componentes reutilizáveis e
-              interfaces responsivas. Como <b>freelancer</b>, entreguei projetos
-              web e mobile do levantamento de requisitos até a publicação, e no
-              meio acadêmico desenvolvi o <b>Lix0</b>, app de missões de coleta
-              de resíduos. Quando o projeto pede, também trabalho no back-end
-              com Node.js, Prisma e PostgreSQL.
+              interfaces responsivas. No back-end, com <b>Node.js</b>,{' '}
+              <b>Express</b>, <b>Prisma</b> e <b>PostgreSQL</b>, construindo
+              APIs REST com modelagem de dados, controle transacional, validação
+              de entrada e testes automatizados.
             </Typography>
           </Fade>
           <Fade in={true} timeout={1600}>
             <Typography variant="h6" sx={styles.global.text}>
-              Além do front-end, venho me aprofundando em{' '}
-              <b>análise de dados e machine learning</b>. Trabalho com{' '}
-              <b>Python</b>, <b>Scikit-learn</b> e <b>Pandas</b> — desenvolvi um
-              modelo preditivo de risco cardíaco a partir de dados clínicos e
-              hoje conduzo meu <b>TCC</b>, que compara <b>Random Forest</b> e{' '}
-              <b>XGBoost</b> na detecção de anomalias em logs de auditoria, com
-              explicabilidade via <b>SHAP</b>.
+              Como <b>freelancer</b>, entreguei aplicações web e mobile para
+              clientes independentes, do levantamento de requisitos até a
+              entrega e os ajustes pós-publicação. Meu projeto mais recente é
+              uma <b>API de controle de estoque</b> com rastreio por fardo, em
+              que o saldo é reconstruído a partir de um livro-razão de
+              movimentações, a venda usa bloqueio de linha para não furar o
+              estoque em compras simultâneas, e os testes rodam com{' '}
+              <b>Vitest</b> contra um PostgreSQL descartável provisionado via{' '}
+              <b>Docker Compose</b>.
             </Typography>
           </Fade>
 
@@ -75,18 +76,20 @@ const About = () => {
           </Fade>
           <Fade in={true} timeout={2000}>
             <Typography variant="h6" sx={styles.global.text}>
-              Estou <b>aberto a oportunidades de estágio ou júnior</b> em{' '}
-              <b>front-end ou dados</b>, com a chance de me aperfeiçoar como
-              desenvolvedor. Sei que o dia-a-dia ensina bastante coisa, assim
-              como o <b>trabalho em equipe</b>.
+              Busco <b>estágio ou posição júnior</b> em{' '}
+              <b>desenvolvimento de software</b>, com a chance de me aperfeiçoar
+              como desenvolvedor. Sei que o dia-a-dia ensina bastante coisa,
+              assim como o <b>trabalho em equipe</b>.
             </Typography>
           </Fade>
           <Fade in={true} timeout={2200}>
             <Typography variant="h6" sx={styles.global.text}>
-              Em termos gerais, pretendo seguir com o <b>desenvolvimento WEB</b>
-              , assim como <b>mobile</b>, de forma colaborativa (<b>SCRUM</b>),
-              e continuar aprofundando meus estudos em <b>análise de dados</b> e{' '}
-              <b>machine learning</b>, unindo as duas frentes.
+              Pretendo seguir no <b>desenvolvimento web e mobile</b>,
+              equilibrando front-end e back-end, e aprofundar o que sustenta as
+              duas frentes: modelagem de dados, testes automatizados e qualidade
+              de código. Em paralelo conduzo meu <b>TCC</b>, sobre detecção de
+              anomalias em logs de auditoria, comparando regras estáticas e
+              modelos supervisionados.
             </Typography>
           </Fade>
         </Stack>
