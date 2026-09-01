@@ -1,23 +1,21 @@
 import { hexToRGBA } from 'src/app/utils/hexToRGBA'
 
-import { tokens } from '../theme/tokens'
+import { gridCellTile, gridLinesPaintedIn, tokens } from '../theme/tokens'
 
-const GRID_CELL_SIZE = '4rem'
 const GRID_LINE_OPACITY = 0.026
 const ACCENT_HALO_OPACITY = 0.1
 const SELECTION_OPACITY = 0.3
 const SCROLLBAR_SIZE = 10
 const FOCUS_RING_WIDTH = 2
 
-const gridLineColor = hexToRGBA(tokens.text, GRID_LINE_OPACITY)
-
 const accentHalo = `radial-gradient(48rem 30rem at 50% -8rem, ${hexToRGBA(
   tokens.accent,
   ACCENT_HALO_OPACITY
 )}, transparent 70%)`
 
-const horizontalGridLines = `linear-gradient(${gridLineColor} 1px, transparent 1px)`
-const verticalGridLines = `linear-gradient(90deg, ${gridLineColor} 1px, transparent 1px)`
+const restingGridLines = gridLinesPaintedIn(
+  hexToRGBA(tokens.text, GRID_LINE_OPACITY)
+)
 
 export const globalStyles = {
   html: {
@@ -31,10 +29,8 @@ export const globalStyles = {
     padding: 0,
     backgroundColor: tokens.background,
     color: tokens.text,
-    backgroundImage: [accentHalo, horizontalGridLines, verticalGridLines].join(
-      ', '
-    ),
-    backgroundSize: `100% 100%, ${GRID_CELL_SIZE} ${GRID_CELL_SIZE}, ${GRID_CELL_SIZE} ${GRID_CELL_SIZE}`,
+    backgroundImage: [accentHalo, restingGridLines].join(', '),
+    backgroundSize: `100% 100%, ${gridCellTile}, ${gridCellTile}`,
     backgroundAttachment: 'fixed',
     backgroundRepeat: 'no-repeat, repeat, repeat'
   },

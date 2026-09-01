@@ -31,8 +31,17 @@ export const layout = {
   contentMaxWidth: '68rem',
   proseMaxWidth: '62ch',
   leadMaxWidth: '52ch',
-  portraitColumnWidth: '18rem'
+  portraitColumnWidth: '18rem',
+  backgroundGridCell: '4rem'
 } as const
+
+export const gridLinesPaintedIn = (color: string) =>
+  [
+    `linear-gradient(${color} 1px, transparent 1px)`,
+    `linear-gradient(90deg, ${color} 1px, transparent 1px)`
+  ].join(', ')
+
+export const gridCellTile = `${layout.backgroundGridCell} ${layout.backgroundGridCell}`
 
 export const transitions = {
   fast: '160ms ease',

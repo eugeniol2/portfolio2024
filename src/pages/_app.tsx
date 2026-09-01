@@ -8,6 +8,7 @@ import { Hydrate, QueryClient, QueryClientProvider } from 'react-query'
 import { Toaster } from 'sonner'
 
 import { DEFAULT_SETTINGS } from 'src/app/atoms/defaultSettingsAtom'
+import GridSpotlight from 'src/app/components/gridSpotlight'
 import Header from 'src/app/components/header'
 import Layout from 'src/app/components/layout'
 import createEmotionCache from 'src/app/createEmotionCache'
@@ -48,6 +49,7 @@ function MyApp({
                 duration={TOAST_DURATION_MS}
                 position={DEFAULT_SETTINGS.toastPosition}
               />
+              <GridSpotlight />
               <Header />
               <Layout>
                 <Component {...pageProps} />
