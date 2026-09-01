@@ -1,6 +1,7 @@
 import { asText } from '@prismicio/client'
 import React from 'react'
 
+import Seo from 'src/app/components/seo'
 import Projects from 'src/feature/Projects'
 import { type ProjectListProps } from 'src/feature/Projects/types/projectsType'
 import { createClient } from 'src/prismicio'
@@ -17,7 +18,14 @@ const PROJECT_FIELDS = [
 ]
 
 const ProjectsPage: React.FC<ProjectListProps> = ({ projects }) => (
-  <Projects projects={projects} />
+  <>
+    <Seo
+      title="Projetos | Eugênio Araújo, Desenvolvedor Full-Stack"
+      description="Projetos web e mobile, da API de controle de estoque com PostgreSQL e testes em Vitest a dashboards em Next.js consumindo APIs públicas."
+      path="/projects"
+    />
+    <Projects projects={projects} />
+  </>
 )
 
 export async function getStaticProps({ previewData }: { previewData: any }) {

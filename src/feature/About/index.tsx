@@ -50,6 +50,17 @@ const Portrait = () => (
 const About = () => {
   return (
     <Stack gap={{ xs: 16, md: 24 }}>
+      <Box>
+        <Reveal>
+          <Typography variant="overline">Sobre</Typography>
+        </Reveal>
+        <Reveal order={1}>
+          <Typography variant="h1" sx={{ marginTop: 3 }}>
+            Sobre mim
+          </Typography>
+        </Reveal>
+      </Box>
+
       <Section order={1} title="Biografia">
         <Box
           sx={{
@@ -68,7 +79,7 @@ const About = () => {
 
           <Stack gap={6} sx={{ maxWidth: layout.proseMaxWidth, minWidth: 0 }}>
             <Reveal>
-              <Typography variant="h6" color="text.secondary">
+              <Typography variant="h6" component="p" color="text.secondary">
                 Sou de <b>Pernambuco, Carpina</b>, e em 2019 comecei os estudos
                 para entrar em algum curso superior, com bastante interesse de
                 ingressar na área de tecnologia. Assim consegui uma vaga na{' '}
@@ -80,7 +91,7 @@ const About = () => {
             </Reveal>
 
             <Reveal order={1}>
-              <Typography variant="h6" color="text.secondary">
+              <Typography variant="h6" component="p" color="text.secondary">
                 Minha atuação é em <b>desenvolvimento full-stack</b>. No
                 front-end trabalho com <b>React</b>, <b>Next.js</b>,{' '}
                 <b>React Native</b> e <b>TypeScript</b>, escrevendo componentes
@@ -93,7 +104,7 @@ const About = () => {
             </Reveal>
 
             <Reveal order={2}>
-              <Typography variant="h6" color="text.secondary">
+              <Typography variant="h6" component="p" color="text.secondary">
                 Como <b>freelancer</b>, entreguei aplicações web e mobile para
                 clientes independentes, do levantamento de requisitos até a
                 entrega e os ajustes pós-publicação. Meu projeto mais recente é
@@ -112,7 +123,7 @@ const About = () => {
       <Section order={2} title="Objetivos">
         <Stack gap={6} sx={{ maxWidth: layout.proseMaxWidth }}>
           <Reveal>
-            <Typography variant="h6" color="text.secondary">
+            <Typography variant="h6" component="p" color="text.secondary">
               Busco <b>estágio ou posição júnior</b> em{' '}
               <b>desenvolvimento de software</b>, com a chance de me aperfeiçoar
               como desenvolvedor. Sei que o dia-a-dia ensina bastante coisa,
@@ -121,7 +132,7 @@ const About = () => {
           </Reveal>
 
           <Reveal order={1}>
-            <Typography variant="h6" color="text.secondary">
+            <Typography variant="h6" component="p" color="text.secondary">
               Pretendo seguir no <b>desenvolvimento web e mobile</b>,
               equilibrando front-end e back-end, e aprofundar o que sustenta as
               duas frentes: modelagem de dados, testes automatizados e qualidade

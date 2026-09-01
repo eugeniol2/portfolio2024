@@ -42,7 +42,7 @@ const Projects: React.FC<ProjectListProps> = ({ projects }) => {
         </Stack>
       ) : (
         <Reveal>
-          <Typography variant="h6" color="text.secondary">
+          <Typography variant="h6" component="p" color="text.secondary">
             Nenhum projeto para mostrar no momento.
           </Typography>
         </Reveal>

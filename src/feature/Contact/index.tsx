@@ -168,6 +168,7 @@ const Contact = () => {
         <Reveal order={2}>
           <Typography
             variant="h6"
+            component="p"
             color="text.secondary"
             sx={{ marginTop: 6, maxWidth: layout.leadMaxWidth }}
           >
@@ -210,6 +211,7 @@ const Contact = () => {
         <Reveal>
           <Typography
             variant="h6"
+            component="p"
             color="text.secondary"
             sx={{ marginBottom: 6, maxWidth: layout.leadMaxWidth }}
           >

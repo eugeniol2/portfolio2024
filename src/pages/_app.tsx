@@ -17,7 +17,6 @@ import { repositoryName } from 'src/prismicio'
 
 const clientSideEmotionCache = createEmotionCache()
 
-const PAGE_TITLE = 'Eugênio Araújo | Desenvolvedor Full-Stack'
 const VIEWPORT = 'width=device-width, initial-scale=1'
 const TOAST_DURATION_MS = 3000
 
@@ -39,7 +38,6 @@ function MyApp({
           <CacheProvider value={emotionCache}>
             <ThemeComponent>
               <Head>
-                <title>{PAGE_TITLE}</title>
                 <meta name="viewport" content={VIEWPORT} />
               </Head>
               <Toaster

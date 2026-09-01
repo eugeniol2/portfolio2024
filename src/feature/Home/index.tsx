@@ -105,7 +105,7 @@ const Home = () => {
 
       <Stack gap={6} sx={{ maxWidth: layout.proseMaxWidth }}>
         <Reveal>
-          <Typography variant="h6" color="text.secondary">
+          <Typography variant="h6" component="p" color="text.secondary">
             Sou <b>desenvolvedor full-stack</b> e estudante de{' '}
             <b>Sistemas de Informação na UFRPE</b>, com conclusão prevista para{' '}
             <b>2027</b>. Moro em <b>Carpina, Pernambuco</b>, e estou disponível
@@ -114,7 +114,7 @@ const Home = () => {
         </Reveal>
 
         <Reveal order={1}>
-          <Typography variant="h6" color="text.secondary">
+          <Typography variant="h6" component="p" color="text.secondary">
             No front-end construo aplicações <b>web e mobile</b> com{' '}
             <b>React</b>, <b>Next.js</b>, <b>React Native</b> e{' '}
             <b>TypeScript</b>, escrevendo componentes reutilizáveis e interfaces
@@ -126,7 +126,7 @@ const Home = () => {
         </Reveal>
 
         <Reveal order={2}>
-          <Typography variant="h6" color="text.secondary">
+          <Typography variant="h6" component="p" color="text.secondary">
             Como <b>freelancer</b>, entreguei projetos de ponta a ponta, do
             levantamento de requisitos com o cliente até a publicação. Busco{' '}
             <b>estágio ou posição júnior</b> em desenvolvimento de software.
