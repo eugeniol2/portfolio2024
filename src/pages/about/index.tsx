@@ -1,11 +1,5 @@
 import About from 'src/feature/About'
 
-const about = () => {
-  return (
-    <>
-      <About />
-    </>
-  )
-}
+const AboutPage = () => <About />
 
-export default about
+export default AboutPage

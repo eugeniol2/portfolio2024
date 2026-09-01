@@ -1,92 +1,94 @@
-// ** Type Imports
 import { type Palette } from '@mui/material'
 
-const DefaultPalette = (skin: string): Palette => {
-  // ** Vars
-  const whiteColor = '#FFF'
-  const grayColor = '#F8F7FA'
-  const mainColor = '19, 21, 23'
+import { hexToRGBA } from 'src/app/utils/hexToRGBA'
 
-  const defaultBgColor = () => {
-    if (skin === 'bordered') {
-      return whiteColor
-    } else {
-      return grayColor
-    }
-  }
+import { tokens } from '../tokens'
+
+const HOVER_OPACITY = 0.06
+const SELECTED_OPACITY = 0.1
+const DISABLED_OPACITY = 0.28
+const DISABLED_BACKGROUND_OPACITY = 0.1
+const FOCUS_OPACITY = 0.24
+const TRACK_OPACITY = 0.06
+
+const DefaultPalette = (skin: string): Palette => {
+  const isBorderedSkin = skin === 'bordered'
+  const surfaceColor = isBorderedSkin ? tokens.surfaceRaised : tokens.surface
 
   return {
-    customColors: {
-      main: mainColor,
+    mode: 'dark',
 
-      bodyBg: grayColor,
-      trackBg: 'rgba(75, 70, 92, 0.04)',
-      avatarBg: '#DBDADE',
-      tableHeaderBg: '#fff'
+    customColors: {
+      main: tokens.text,
+      bodyBg: tokens.background,
+      trackBg: hexToRGBA(tokens.text, TRACK_OPACITY),
+      avatarBg: tokens.surfaceRaised,
+      tableHeaderBg: tokens.surface
     },
 
     common: {
       black: '#000',
-      white: whiteColor
+      white: '#FFF'
     },
     primary: {
-      main: '#212121',
-      contrastText: whiteColor
+      main: tokens.accent,
+      dark: tokens.accentDim,
+      contrastText: tokens.background
     },
     secondary: {
-      main: '#A8AAAE',
-      contrastText: whiteColor
+      main: tokens.textMuted,
+      contrastText: tokens.background
     },
     error: {
-      main: '#EA5455',
-      contrastText: whiteColor
+      main: tokens.error,
+      contrastText: tokens.background
     },
     warning: {
-      main: '#FF9F43',
-      contrastText: whiteColor
+      main: tokens.warning,
+      contrastText: tokens.background
     },
     info: {
-      main: '#00CFE8',
-      contrastText: whiteColor
+      main: tokens.accent,
+      contrastText: tokens.background
     },
     success: {
-      main: '#28C76F',
-      contrastText: whiteColor
+      main: tokens.success,
+      contrastText: tokens.background
     },
     grey: {
-      50: '#FAFAFA',
-      100: '#F5F5F5',
-      200: '#EEEEEE',
-      300: '#E0E0E0',
-      400: '#BDBDBD',
-      500: '#9E9E9E',
-      600: '#757575',
-      700: '#616161',
-      800: '#424242',
-      900: '#212121',
-      A100: '#F5F5F5',
-      A200: '#EEEEEE',
-      A400: '#BDBDBD',
-      A700: '#616161'
+      50: '#F5F8FA',
+      100: '#E6EDF3',
+      200: '#C7D3E0',
+      300: '#A7B7C8',
+      400: '#93A4B8',
+      500: '#7A8B9F',
+      600: '#5C6C7F',
+      700: '#3D4B5C',
+      800: '#2B3B4D',
+      900: '#1E2A38',
+      A100: '#E6EDF3',
+      A200: '#93A4B8',
+      A400: '#5C6C7F',
+      A700: '#2B3B4D'
     },
     text: {
-      primary: `rgba(${mainColor}, 1)`,
-      secondary: `rgba(${mainColor}, 0.68)`,
-      disabled: `rgba(${mainColor}, 0.42)`
+      primary: tokens.text,
+      secondary: tokens.textMuted,
+      disabled: tokens.textFaint
     },
-    divider: `rgba(${mainColor}, 0.16)`,
+    divider: tokens.border,
     background: {
-      paper: grayColor,
-      default: defaultBgColor()
+      paper: surfaceColor,
+      default: tokens.background
     },
     action: {
-      active: `rgba(${mainColor}, 0.54)`,
-      hover: `rgba(${mainColor}, 0.04)`,
-      selected: `rgba(${mainColor}, 0.06)`,
-      selectedOpacity: 0.06,
-      disabled: `rgba(${mainColor}, 0.26)`,
-      disabledBackground: `rgba(${mainColor}, 0.12)`,
-      focus: `rgba(${mainColor}, 0.12)`
+      active: tokens.textMuted,
+      hover: hexToRGBA(tokens.text, HOVER_OPACITY),
+      selected: hexToRGBA(tokens.text, SELECTED_OPACITY),
+      selectedOpacity: SELECTED_OPACITY,
+      disabled: hexToRGBA(tokens.text, DISABLED_OPACITY),
+      disabledBackground: hexToRGBA(tokens.text, DISABLED_BACKGROUND_OPACITY),
+      focus: hexToRGBA(tokens.accent, FOCUS_OPACITY)
     }
   } as Palette
 }

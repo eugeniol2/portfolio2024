@@ -2,25 +2,17 @@ import { atom } from 'jotai'
 
 import { type Settings } from '../theme/types'
 
-const initialSettings = atom({
+export const DEFAULT_SETTINGS: Settings = {
   themeColor: 'primary',
   appBar: 'fixed',
-  layout: 'vertical' /* vertical | horizontal */,
-  skin: 'default' /* default | bordered */,
-  contentWidth: 'boxed' /* full | boxed */,
-  appBarBlur: true /* true | false */,
-  // ** Routing Configs
-  routingLoader: true /* true | false */,
-  navCollapsed:
-    false /* true | false /*! Note: This is for Vertical navigation menu only */,
-  navHidden: false /* true | false */,
-  toastPosition:
-    'top-right' /* top-left | top-center | top-right | bottom-left | bottom-center | bottom-right */,
-  verticalNavToggleType:
-    'accordion' /* accordion | collapse /*! Note: This is for Vertical navigation menu only */,
-  responsiveFontSizes: false /* true | false */,
-  disableRipple: false /* true | false */,
-  disableCustomizer: false /* true | false */
-} as Settings)
+  layout: 'vertical',
+  skin: 'default',
+  contentWidth: 'boxed',
+  appBarBlur: true,
+  navCollapsed: false,
+  navHidden: false,
+  toastPosition: 'bottom-center',
+  verticalNavToggleType: 'accordion'
+}
 
-export const defaultSettingsAtom = { initialSettings }
+export const settingsAtom = atom(DEFAULT_SETTINGS)

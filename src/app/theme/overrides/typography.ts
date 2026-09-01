@@ -1,91 +1,35 @@
-// ** Type Import
 import { type Theme } from '@mui/material/styles'
+
+import { tokens } from '../tokens'
+
+const GUTTER_SPACING = 4
 
 const typography = {
   MuiTypography: {
     styleOverrides: {
       gutterBottom: ({ theme }: { theme: Omit<Theme, 'components'> }) => ({
-        marginBottom: theme.spacing(2)
+        marginBottom: theme.spacing(GUTTER_SPACING)
       })
     },
     variants: [
       {
-        props: { variant: 'h1' },
-        style: ({ theme }: { theme: Omit<Theme, 'components'> }) => ({
-          color: theme.palette.text.primary
-        })
-      },
-      {
-        props: { variant: 'h2' },
-        style: ({ theme }: { theme: Omit<Theme, 'components'> }) => ({
-          color: theme.palette.text.primary
-        })
-      },
-      {
-        props: { variant: 'h3' },
-        style: ({ theme }: { theme: Omit<Theme, 'components'> }) => ({
-          color: theme.palette.text.primary
-        })
-      },
-      {
-        props: { variant: 'h4' },
-        style: ({ theme }: { theme: Omit<Theme, 'components'> }) => ({
-          color: theme.palette.text.primary
-        })
-      },
-      {
-        props: { variant: 'h5' },
-        style: ({ theme }: { theme: Omit<Theme, 'components'> }) => ({
-          color: theme.palette.text.primary
-        })
-      },
-      {
-        props: { variant: 'h6' },
-        style: ({ theme }: { theme: Omit<Theme, 'components'> }) => ({
-          color: theme.palette.text.primary
-        })
-      },
-      {
-        props: { variant: 'subtitle1' },
-        style: ({ theme }: { theme: Omit<Theme, 'components'> }) => ({
-          color: theme.palette.text.primary
-        })
-      },
-      {
-        props: { variant: 'subtitle2' },
-        style: ({ theme }: { theme: Omit<Theme, 'components'> }) => ({
-          color: theme.palette.text.secondary
-        })
-      },
-      {
-        props: { variant: 'body1' },
-        style: ({ theme }: { theme: Omit<Theme, 'components'> }) => ({
-          color: theme.palette.text.primary
-        })
-      },
-      {
-        props: { variant: 'body2' },
-        style: ({ theme }: { theme: Omit<Theme, 'components'> }) => ({
-          color: theme.palette.text.secondary
-        })
-      },
-      {
-        props: { variant: 'button' },
-        style: ({ theme }: { theme: Omit<Theme, 'components'> }) => ({
-          textTransform: 'none',
-          color: theme.palette.text.primary
+        props: { variant: 'overline' },
+        style: () => ({
+          color: tokens.accent,
+          display: 'block'
         })
       },
       {
         props: { variant: 'caption' },
         style: ({ theme }: { theme: Omit<Theme, 'components'> }) => ({
-          color: theme.palette.text.secondary
+          color: theme.palette.text.disabled,
+          display: 'block'
         })
       },
       {
-        props: { variant: 'overline' },
+        props: { variant: 'button' },
         style: ({ theme }: { theme: Omit<Theme, 'components'> }) => ({
-          color: theme.palette.text.secondary
+          color: theme.palette.text.primary
         })
       }
     ]

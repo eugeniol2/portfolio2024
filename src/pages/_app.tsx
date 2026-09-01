@@ -1,8 +1,5 @@
-// pages/_app.js
 import { CacheProvider, type EmotionCache } from '@emotion/react'
 import { PrismicPreview } from '@prismicio/next'
-import { ConfigProvider } from 'antd'
-import ptBR from 'antd/lib/locale/pt_BR'
 import { Provider } from 'jotai'
 import { type AppProps } from 'next/app'
 import Head from 'next/head'
@@ -10,6 +7,7 @@ import React, { useState } from 'react'
 import { Hydrate, QueryClient, QueryClientProvider } from 'react-query'
 import { Toaster } from 'sonner'
 
+import { DEFAULT_SETTINGS } from 'src/app/atoms/defaultSettingsAtom'
 import Header from 'src/app/components/header'
 import Layout from 'src/app/components/layout'
 import createEmotionCache from 'src/app/createEmotionCache'
@@ -17,6 +15,10 @@ import { ThemeComponent } from 'src/app/theme'
 import { repositoryName } from 'src/prismicio'
 
 const clientSideEmotionCache = createEmotionCache()
+
+const PAGE_TITLE = 'Eugênio Araújo | Desenvolvedor Full-Stack'
+const VIEWPORT = 'width=device-width, initial-scale=1'
+const TOAST_DURATION_MS = 3000
 
 export interface MyAppProps extends AppProps {
   emotionCache?: EmotionCache
@@ -36,25 +38,21 @@ function MyApp({
           <CacheProvider value={emotionCache}>
             <ThemeComponent>
               <Head>
-                <title>Eugênio Araújo | Desenvolvedor Full-Stack</title>
-                <meta
-                  name="viewport"
-                  content="width=device-width, initial-scale=1"
-                />
+                <title>{PAGE_TITLE}</title>
+                <meta name="viewport" content={VIEWPORT} />
               </Head>
               <Toaster
+                theme="dark"
                 richColors
                 closeButton
-                duration={3000}
-                position="bottom-center"
+                duration={TOAST_DURATION_MS}
+                position={DEFAULT_SETTINGS.toastPosition}
               />
-              <ConfigProvider locale={ptBR}>
-                <Header />
-                <Layout>
-                  <Component {...pageProps} />
-                </Layout>
-                <PrismicPreview repositoryName={repositoryName} />
-              </ConfigProvider>
+              <Header />
+              <Layout>
+                <Component {...pageProps} />
+              </Layout>
+              <PrismicPreview repositoryName={repositoryName} />
             </ThemeComponent>
           </CacheProvider>
         </Hydrate>

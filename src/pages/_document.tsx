@@ -10,10 +10,43 @@ import Document, {
 } from 'next/document'
 import * as React from 'react'
 
+import { NO_SCRIPT_REVEAL_CSS } from 'src/app/components/reveal'
 import createEmotionCache from 'src/app/createEmotionCache'
+import { tokens } from 'src/app/theme/tokens'
 import images from 'src/images'
 
 import { type MyAppProps } from './_app'
+
+const SITE_TITLE = 'Eugênio Araújo | Desenvolvedor Full-Stack'
+const SITE_DESCRIPTION =
+  'Portfólio de Eugênio Dorneles das Chagas Araújo, desenvolvedor full-stack com React, Next.js, TypeScript, Node.js e PostgreSQL.'
+const SITE_AUTHOR = 'Eugênio Dorneles das Chagas Araújo'
+const SITE_KEYWORDS = [
+  'Desenvolvedor Full-Stack',
+  'Desenvolvedor Web',
+  'Desenvolvimento Mobile',
+  'React.js',
+  'Next.js',
+  'React Native',
+  'TypeScript',
+  'JavaScript',
+  'Material UI',
+  'Node.js',
+  'Express.js',
+  'Prisma ORM',
+  'PostgreSQL',
+  'APIs REST',
+  'Zod',
+  'Vitest',
+  'Docker',
+  'Git',
+  'Design Responsivo',
+  'Portfólio de Programador',
+  'Freelance Developer'
+].join(', ')
+
+const GOOGLE_FONTS_HREF =
+  'https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Public+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap'
 
 interface MyDocumentProps extends DocumentProps {
   emotionStyleTags: JSX.Element[]
@@ -24,26 +57,21 @@ export default function MyDocument({ emotionStyleTags }: MyDocumentProps) {
     <Html lang="pt-br">
       <Head>
         <meta name="emotion-insertion-point" content="" />
-        <meta
-          name="title"
-          content="Eugênio Araújo | Desenvolvedor Full-Stack"
-        />
-        <meta
-          name="description"
-          content="Portfólio de Eugênio Dorneles das Chagas Araújo, desenvolvedor full-stack com React, Next.js, TypeScript, Node.js e PostgreSQL."
-        />
-        <meta name="author" content="Eugênio Dorneles das Chagas Araújo" />
-        <meta
-          name="keywords"
-          content="Desenvolvedor Full-Stack, Desenvolvedor Web, Desenvolvimento Mobile, React.js, Next.js, React Native, TypeScript, JavaScript, HTML5, CSS3, Material UI, Node.js, Express.js, Prisma ORM, PostgreSQL, APIs REST, Zod, Vitest, Docker, Git, Design Responsivo, Portfólio de Programador, Freelance Developer"
-        />
+        <meta name="title" content={SITE_TITLE} />
+        <meta name="description" content={SITE_DESCRIPTION} />
+        <meta name="author" content={SITE_AUTHOR} />
+        <meta name="keywords" content={SITE_KEYWORDS} />
+
+        <meta name="theme-color" content={tokens.background} />
+        <meta name="color-scheme" content="dark" />
 
         <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link
-          href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700&family=Roboto:wght@400;500;700&family=Shadows+Into+Light&display=swap"
-          rel="stylesheet"
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
         />
+        <link href={GOOGLE_FONTS_HREF} rel="stylesheet" />
         <link rel="shortcut icon" href={images.favIconData.favIcon.src} />
         <link
           rel="apple-touch-icon"
@@ -62,6 +90,13 @@ export default function MyDocument({ emotionStyleTags }: MyDocumentProps) {
           sizes="16x16"
           href={images.favIconData.favIcon16x16.src}
         />
+
+        <noscript>
+          <style
+            // eslint-disable-next-line react/no-danger
+            dangerouslySetInnerHTML={{ __html: NO_SCRIPT_REVEAL_CSS }}
+          />
+        </noscript>
 
         {emotionStyleTags}
       </Head>

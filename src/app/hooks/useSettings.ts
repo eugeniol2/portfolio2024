@@ -1,53 +1,25 @@
 import { useAtom } from 'jotai'
-import { useCallback, useEffect } from 'react'
+import { useEffect } from 'react'
 
-import { defaultSettingsAtom } from '../atoms/defaultSettingsAtom'
+import { settingsAtom } from '../atoms/defaultSettingsAtom'
 import { type Settings } from '../theme/types'
 
-const initial = {
-  themeColor: 'primary',
-  appBar: 'fixed',
-  layout: 'vertical' /* vertical | horizontal */,
-  skin: 'default' /* default | bordered */,
-  contentWidth: 'boxed' /* full | boxed */,
-  appBarBlur: true /* true | false */,
-  // ** Routing Configs
-  routingLoader: true /* true | false */,
-  navCollapsed:
-    false /* true | false /*! Note: This is for Vertical navigation menu only */,
-  navHidden: false /* true | false */,
-  toastPosition:
-    'top-right' /* top-left | top-center | top-right | bottom-left | bottom-center | bottom-right */,
-  verticalNavToggleType:
-    'accordion' /* accordion | collapse /*! Note: This is for Vertical navigation menu only */,
-  responsiveFontSizes: false /* true | false */,
-  disableRipple: false /* true | false */,
-  disableCustomizer: false /* true | false */
-} as Settings
+const SETTINGS_STORAGE_KEY = 'settings'
 
 export function useSettings() {
-  const [initialSettings, setInitialSettings] = useAtom(
-    defaultSettingsAtom.initialSettings
-  )
-
-  const handleSetLocalStorage = useCallback((settings: Settings) => {
-    localStorage.setItem('settings', JSON.stringify(settings))
-  }, [])
+  const [settings, setSettings] = useAtom(settingsAtom)
 
   useEffect(() => {
-    const settings = localStorage.getItem('settings')
+    const storedSettings = localStorage.getItem(SETTINGS_STORAGE_KEY)
 
-    if (!settings) {
-      handleSetLocalStorage(initial)
-      return
+    if (storedSettings) {
+      setSettings(JSON.parse(storedSettings) as Settings)
     }
-
-    setInitialSettings(JSON.parse(settings) as Settings)
-  }, [setInitialSettings, handleSetLocalStorage])
+  }, [setSettings])
 
   useEffect(() => {
-    handleSetLocalStorage(initialSettings)
-  }, [initialSettings, handleSetLocalStorage])
+    localStorage.setItem(SETTINGS_STORAGE_KEY, JSON.stringify(settings))
+  }, [settings])
 
-  return { initialSettings }
+  return { settings }
 }

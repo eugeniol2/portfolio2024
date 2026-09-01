@@ -1,15 +1,16 @@
-// ** MUI Imports
-
-import { type Settings } from '../types'
 import Button from './button'
 import MuiIconButton from './iconButton'
 import navTabs from './navTabs'
+import surfaces from './surfaces'
 import MuiTypography from './typography'
 
-const Overrides = (settings: Settings) => {
-  const nav = navTabs()
-
-  return Object.assign(MuiIconButton, MuiTypography, Button, nav) as any
-}
+const Overrides = () =>
+  ({
+    ...MuiIconButton,
+    ...MuiTypography,
+    ...Button,
+    ...navTabs(),
+    ...surfaces
+  } as any)
 
 export default Overrides

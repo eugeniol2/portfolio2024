@@ -1,20 +1,15 @@
 import * as prismic from '@prismicio/client'
 import * as prismicNext from '@prismicio/next'
 
-import config from '../slicemachine.config.json'
+import slicemachineConfig from '../slicemachine.config.json'
 
-/**
- * The project's Prismic repository name.
- */
+const PRODUCTION_REVALIDATE_SECONDS = 60
+const DEVELOPMENT_REVALIDATE_SECONDS = 5
+
 export const repositoryName =
-  process.env.NEXT_PUBLIC_PRISMIC_ENVIRONMENT ?? config.repositoryName
+  process.env.NEXT_PUBLIC_PRISMIC_ENVIRONMENT ??
+  slicemachineConfig.repositoryName
 
-/**
- * A list of Route Resolver objects that define how a document's `url` field is resolved.
- *
- * {@link https://prismic.io/docs/route-resolver#route-resolver}
- */
-// TODO: Update the routes array to match your project's route structure.
 const routes: prismic.ClientConfig['routes'] = [
   {
     type: 'project',
@@ -26,30 +21,25 @@ const routes: prismic.ClientConfig['routes'] = [
   }
 ]
 
-/**
- * Creates a Prismic client for the project's repository. The client is used to
- * query content from the Prismic API.
- *
- * @param config - Configuration for the Prismic client.
- */
-export const createClient = (config: prismicNext.CreateClientConfig = {}) => {
+export const createClient = (
+  clientConfig: prismicNext.CreateClientConfig = {}
+) => {
+  const isProduction = process.env.NODE_ENV === 'production'
+  const revalidate = isProduction
+    ? PRODUCTION_REVALIDATE_SECONDS
+    : DEVELOPMENT_REVALIDATE_SECONDS
+
   const client = prismic.createClient(repositoryName, {
     accessToken: process.env.PRISMIC_ACCESS_TOKEN,
     routes,
-    // `cache: 'force-cache'` + tags so valem no App Router, e o `revalidateTag`
-    // que os invalidava nao existe mais. Em producao isso congelava a resposta
-    // da API (inclusive o master ref) nas rotas de preview.
-    fetchOptions:
-      process.env.NODE_ENV === 'production'
-        ? { next: { revalidate: 60 } }
-        : { next: { revalidate: 5 } },
-    ...config
+    fetchOptions: { next: { revalidate } },
+    ...clientConfig
   })
 
   prismicNext.enableAutoPreviews({
     client,
-    previewData: config.previewData,
-    req: config.req
+    previewData: clientConfig.previewData,
+    req: clientConfig.req
   })
 
   return client

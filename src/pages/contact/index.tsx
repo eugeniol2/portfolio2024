@@ -1,11 +1,5 @@
 import Contact from 'src/feature/Contact'
 
-const contact = () => {
-  return (
-    <>
-      <Contact />
-    </>
-  )
-}
+const ContactPage = () => <Contact />
 
-export default contact
+export default ContactPage

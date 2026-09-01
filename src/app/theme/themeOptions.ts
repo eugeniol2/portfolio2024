@@ -1,52 +1,35 @@
-// ** MUI Theme Provider
 import { type ThemeOptions } from '@mui/material'
-import { deepmerge } from '@mui/utils'
 
 import breakpoints from './breakpoints'
 import Overrides from './overrides'
 import palette from './palette'
-// ** Theme Override Imports
 import shadows from './shadows'
 import spacing from './spacing'
 import { type Settings } from './types'
 import typography from './typography'
 
-const themeOptions = (settings: Settings): ThemeOptions => {
-  const userThemeConfig: ThemeOptions = Object.assign({})
-  const { skin, themeColor } = settings
+const BORDER_RADIUS = 2
+const TOOLBAR_MIN_HEIGHT = 64
 
-  const mergedThemeConfig: ThemeOptions = deepmerge(
-    {
-      breakpoints: breakpoints(),
-      components: Overrides(settings),
-      palette: palette(skin),
-      ...spacing,
-      shape: {
-        borderRadius: 6
-      },
-      mixins: {
-        toolbar: {
-          minHeight: 64
-        }
-      },
-      shadows: shadows(),
-      typography
+const themeOptions = ({ skin, themeColor }: Settings): ThemeOptions => {
+  const basePalette = palette(skin)
+
+  return {
+    breakpoints: breakpoints(),
+    components: Overrides(),
+    palette: { ...basePalette, primary: basePalette[themeColor] },
+    ...spacing,
+    shape: {
+      borderRadius: BORDER_RADIUS
     },
-    userThemeConfig
-  )
-
-  return deepmerge(
-    {
-      palette: {
-        primary: {
-          ...(mergedThemeConfig.palette
-            ? mergedThemeConfig.palette[themeColor]
-            : palette(skin).primary)
-        }
+    mixins: {
+      toolbar: {
+        minHeight: TOOLBAR_MIN_HEIGHT
       }
     },
-    mergedThemeConfig
-  )
+    shadows: shadows(),
+    typography
+  }
 }
 
 export default themeOptions

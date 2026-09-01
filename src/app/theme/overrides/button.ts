@@ -2,25 +2,78 @@ import { type Theme } from '@mui/material/styles'
 
 import { hexToRGBA } from 'src/app/utils/hexToRGBA'
 
+import { accentGlow, tokens, transitions } from '../tokens'
+
+const TINTED_HOVER_OPACITY = 0.06
+const CONTAINED_GLOW_INTENSITY = 0.4
+const OUTLINED_GLOW_INTENSITY = 0.28
+
+const animatedProperties = [
+  'color',
+  'border-color',
+  'background-color',
+  'box-shadow'
+]
+  .map(property => `${property} ${transitions.fast}`)
+  .join(', ')
+
 const Button = {
   MuiButton: {
+    defaultProps: {
+      disableElevation: true
+    },
+    styleOverrides: {
+      root: {
+        borderRadius: 2,
+        textTransform: 'uppercase' as const,
+        padding: '0.625rem 1.25rem',
+        transition: animatedProperties
+      }
+    },
     variants: [
       {
-        props: { color: 'primary', variant: 'contained' },
-        style: ({ theme }: { theme: Theme }) => ({
-          color: theme.palette.primary.contrastText,
-          backgroundColor: theme.palette.primary.main,
+        props: { variant: 'contained' },
+        style: () => ({
+          color: tokens.background,
+          backgroundColor: tokens.accent,
+          border: `1px solid ${tokens.accent}`,
           '&:hover': {
-            backgroundColor: hexToRGBA(theme.palette.primary.main, 0.8)
+            backgroundColor: tokens.accentBright,
+            borderColor: tokens.accentBright,
+            boxShadow: accentGlow(CONTAINED_GLOW_INTENSITY)
+          },
+          '&.Mui-disabled': {
+            color: tokens.textFaint,
+            backgroundColor: 'transparent',
+            borderColor: tokens.border
           }
         })
       },
       {
-        props: { color: 'primary', variant: 'outlined' },
-        style: ({ theme }: { theme: Theme }) => ({
-          color: theme.palette.primary.main,
+        props: { variant: 'outlined' },
+        style: () => ({
+          color: tokens.text,
+          borderColor: tokens.borderStrong,
+          backgroundColor: 'transparent',
           '&:hover': {
-            backgroundColor: hexToRGBA(theme.palette.primary.main, 0.1)
+            color: tokens.accent,
+            borderColor: tokens.accent,
+            backgroundColor: hexToRGBA(tokens.accent, TINTED_HOVER_OPACITY),
+            boxShadow: accentGlow(OUTLINED_GLOW_INTENSITY)
+          },
+          '&.Mui-disabled': {
+            color: tokens.textFaint,
+            borderColor: tokens.border
+          }
+        })
+      },
+      {
+        props: { variant: 'text' },
+        style: ({ theme }: { theme: Theme }) => ({
+          color: theme.palette.text.secondary,
+          '&:hover': {
+            color: tokens.accent,
+            backgroundColor: hexToRGBA(tokens.accent, TINTED_HOVER_OPACITY)
           }
         })
       }

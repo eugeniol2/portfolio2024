@@ -1,158 +1,239 @@
+import DescriptionOutlinedIcon from '@mui/icons-material/DescriptionOutlined'
 import GitHubIcon from '@mui/icons-material/GitHub'
 import LinkedInIcon from '@mui/icons-material/LinkedIn'
 import {
   Box,
   Button,
-  Fade,
   Link,
   Stack,
-  Typography,
-  useTheme
+  type SvgIconProps,
+  Typography
 } from '@mui/material'
 import React from 'react'
 
-import useDynamicStyles from 'src/app/hooks/useDynamicStyles'
+import Reveal from 'src/app/components/reveal'
+import Section from 'src/app/components/section'
+import { fonts, layout, tokens, transitions } from 'src/app/theme/tokens'
+import { hexToRGBA } from 'src/app/utils/hexToRGBA'
 
-const curriculos = [
+const CHANNEL_VALUE_CLASS = 'channel-value'
+const CHANNEL_LABEL_COLUMN_WIDTH = '10rem'
+const ROW_HOVER_OPACITY = 0.05
+const SOCIAL_BUTTON_SIZE = '3rem'
+const SOCIAL_GLOW_OPACITY = 0.9
+
+const CONTACT_CHANNELS = [
   {
-    label: 'Português (PDF)',
+    label: 'WhatsApp',
+    value: '(81) 9 8286-6285',
+    href: 'https://wa.me/5581982866285'
+  },
+  {
+    label: 'E-mail',
+    value: 'Eugeniodornelesl2@gmail.com',
+    href: 'mailto:Eugeniodornelesl2@gmail.com'
+  }
+]
+
+const RESUME_FILES = [
+  {
+    label: 'Português',
     href: '/curriculo/Curriculo_Eugenio_Araujo_PT.pdf'
   },
   {
-    label: 'English (PDF)',
+    label: 'English',
     href: '/curriculo/Resume_Eugenio_Araujo_EN.pdf'
   }
 ]
 
-const Contact = () => {
-  const theme = useTheme()
-  const styles = useDynamicStyles()
-
-  const iconStyles = {
-    display: 'flex',
-    alignItems: 'center',
-    gap: '0.5rem',
-    textDecoration: 'none',
-    color: theme.palette.grey[900],
-    '&:hover': {
-      color: theme.palette.primary.main
-    }
+const SOCIAL_LINKS = [
+  {
+    label: 'LinkedIn',
+    href: 'https://www.linkedin.com/in/eugenio-dorneles-araujo/',
+    Icon: LinkedInIcon
+  },
+  {
+    label: 'GitHub',
+    href: 'https://github.com/eugeniol2',
+    Icon: GitHubIcon
   }
+]
 
-  return (
-    <Box
+interface ContactChannelRowProps {
+  label: string
+  value: string
+  href: string
+  hasTopBorder: boolean
+}
+
+const ContactChannelRow: React.FC<ContactChannelRowProps> = ({
+  label,
+  value,
+  href,
+  hasTopBorder
+}) => (
+  <Box
+    component="a"
+    href={href}
+    target="_blank"
+    rel="noopener noreferrer"
+    sx={{
+      display: 'grid',
+      gridTemplateColumns: {
+        xs: '1fr',
+        sm: `${CHANNEL_LABEL_COLUMN_WIDTH} 1fr`
+      },
+      gap: { xs: 1, sm: 4 },
+      alignItems: 'baseline',
+      paddingX: { xs: 5, md: 6 },
+      paddingY: 5,
+      textDecoration: 'none',
+      borderTop: hasTopBorder ? '1px solid' : 'none',
+      borderColor: 'divider',
+      transition: `background-color ${transitions.fast}`,
+      '&:hover': {
+        backgroundColor: hexToRGBA(tokens.accent, ROW_HOVER_OPACITY)
+      },
+      [`&:hover .${CHANNEL_VALUE_CLASS}`]: { color: 'primary.main' }
+    }}
+  >
+    <Typography variant="overline" sx={{ color: 'text.disabled' }}>
+      {label}
+    </Typography>
+    <Typography
+      className={CHANNEL_VALUE_CLASS}
+      component="span"
       sx={{
-        ...styles.global.container,
-        justifyContent: 'center',
-        paddingX: 'none'
+        fontFamily: fonts.mono,
+        fontSize: '1rem',
+        color: 'text.primary',
+        transition: `color ${transitions.fast}`,
+        wordBreak: 'break-word'
       }}
     >
-      <Stack flexDirection="column" alignItems="center" width="100%">
-        <Fade in={true} timeout={1000}>
-          <Typography
-            variant="h1"
-            sx={{ marginBottom: '1rem', textAlign: 'center' }}
-          >
+      {value}
+    </Typography>
+  </Box>
+)
+
+interface SocialLinkProps {
+  label: string
+  href: string
+  Icon: React.ComponentType<SvgIconProps>
+}
+
+const SocialLink: React.FC<SocialLinkProps> = ({ label, href, Icon }) => (
+  <Link
+    href={href}
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label={label}
+    sx={{
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      width: SOCIAL_BUTTON_SIZE,
+      height: SOCIAL_BUTTON_SIZE,
+      color: 'text.secondary',
+      border: '1px solid',
+      borderColor: 'divider',
+      transition: `color ${transitions.fast}, border-color ${transitions.fast}, box-shadow ${transitions.fast}`,
+      '&:hover': {
+        color: 'primary.main',
+        borderColor: 'primary.main',
+        textDecoration: 'none',
+        boxShadow: `0 0 24px -10px ${hexToRGBA(
+          tokens.accent,
+          SOCIAL_GLOW_OPACITY
+        )}`
+      }
+    }}
+  >
+    <Icon fontSize="medium" />
+  </Link>
+)
+
+const Contact = () => {
+  return (
+    <Stack gap={{ xs: 16, md: 24 }}>
+      <Box>
+        <Reveal>
+          <Typography variant="overline">Contato</Typography>
+        </Reveal>
+        <Reveal order={1}>
+          <Typography variant="h1" sx={{ marginTop: 3 }}>
             Vamos conversar!
           </Typography>
-        </Fade>
-        <Fade in={true} timeout={1200}>
+        </Reveal>
+        <Reveal order={2}>
           <Typography
-            variant="h5"
-            sx={{
-              textAlign: 'center',
-              maxWidth: { xs: '100%', md: '50%' }
-            }}
+            variant="h6"
+            color="text.secondary"
+            sx={{ marginTop: 6, maxWidth: layout.leadMaxWidth }}
           >
             Tenho sempre tempo para uma boa conversa ou para responder a
             perguntas sobre projetos. Sinta-se à vontade para me chamar no
             WhatsApp ou por e-mail.
           </Typography>
-        </Fade>
-        <Fade in={true} timeout={1400}>
-          <Stack alignItems="center" gap="0.5rem" marginTop="2rem">
-            <Typography variant="h6" sx={{ textAlign: 'center' }}>
-              Número: <b>(81) 9 8286-6285</b>
-            </Typography>
-            <Typography variant="h6" sx={{ textAlign: 'center' }}>
-              E-mail:{' '}
-              <Link
-                href="mailto:Eugeniodornelesl2@gmail.com"
-                sx={{ fontWeight: 700, color: 'inherit' }}
-              >
-                Eugeniodornelesl2@gmail.com
-              </Link>
-            </Typography>
+        </Reveal>
+      </Box>
+
+      <Section order={1} title="Canais">
+        <Box sx={{ border: '1px solid', borderColor: 'divider' }}>
+          {CONTACT_CHANNELS.map((channel, index) => (
+            <Reveal key={channel.label} order={index}>
+              <ContactChannelRow
+                label={channel.label}
+                value={channel.value}
+                href={channel.href}
+                hasTopBorder={index > 0}
+              />
+            </Reveal>
+          ))}
+        </Box>
+
+        <Reveal order={2}>
+          <Stack direction="row" gap={4} sx={{ marginTop: 8 }}>
+            {SOCIAL_LINKS.map(social => (
+              <SocialLink
+                key={social.label}
+                label={social.label}
+                href={social.href}
+                Icon={social.Icon}
+              />
+            ))}
           </Stack>
-        </Fade>
-        <Fade in={true} timeout={2000}>
-          <Box
-            display="flex"
-            flexDirection="column"
-            alignItems="center"
-            marginTop="2rem"
+        </Reveal>
+      </Section>
+
+      <Section order={2} title="Currículo">
+        <Reveal>
+          <Typography
+            variant="h6"
+            color="text.secondary"
+            sx={{ marginBottom: 6, maxWidth: layout.leadMaxWidth }}
           >
-            <Typography
-              variant="h6"
-              sx={{ marginBottom: '0.5rem', textAlign: 'center' }}
-            >
-              Conecte-se comigo
-            </Typography>
-            <Box display="flex" gap="1rem">
-              <Link
-                href="https://www.linkedin.com/in/eugenio-dorneles-araujo/"
+            Mesmo conteúdo nos dois idiomas, em PDF.
+          </Typography>
+        </Reveal>
+        <Reveal order={1}>
+          <Stack direction="row" flexWrap="wrap" gap={4}>
+            {RESUME_FILES.map(resume => (
+              <Button
+                key={resume.href}
+                variant="outlined"
+                href={resume.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                sx={iconStyles}
+                startIcon={<DescriptionOutlinedIcon fontSize="small" />}
               >
-                <LinkedInIcon fontSize="large" />
-              </Link>
-              <Link
-                href="https://github.com/eugeniol2"
-                target="_blank"
-                rel="noopener noreferrer"
-                sx={iconStyles}
-              >
-                <GitHubIcon fontSize="large" />
-              </Link>
-            </Box>
-          </Box>
-        </Fade>
-        <Fade in={true} timeout={2200}>
-          <Box
-            display="flex"
-            flexDirection="column"
-            alignItems="center"
-            marginTop="2rem"
-          >
-            <Typography
-              variant="h6"
-              sx={{ marginBottom: '0.5rem', textAlign: 'center' }}
-            >
-              Currículo
-            </Typography>
-            <Box
-              display="flex"
-              flexWrap="wrap"
-              justifyContent="center"
-              gap="1rem"
-            >
-              {curriculos.map(curriculo => (
-                <Button
-                  key={curriculo.href}
-                  variant="outlined"
-                  href={curriculo.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {curriculo.label}
-                </Button>
-              ))}
-            </Box>
-          </Box>
-        </Fade>
-      </Stack>
-    </Box>
+                {resume.label}
+              </Button>
+            ))}
+          </Stack>
+        </Reveal>
+      </Section>
+    </Stack>
   )
 }
 

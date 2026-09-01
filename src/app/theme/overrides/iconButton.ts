@@ -2,6 +2,8 @@ import { type Theme } from '@mui/material/styles'
 
 import { hexToRGBA } from 'src/app/utils/hexToRGBA'
 
+const HOVER_OPACITY = 0.08
+
 const IconButton = {
   MuiIconButton: {
     variants: [
@@ -10,7 +12,10 @@ const IconButton = {
         style: ({ theme }: { theme: Theme }) => ({
           color: theme.palette.primary.main,
           '&:hover': {
-            backgroundColor: hexToRGBA(theme.palette.primary.main, 0.08)
+            backgroundColor: hexToRGBA(
+              theme.palette.primary.main,
+              HOVER_OPACITY
+            )
           }
         })
       },
@@ -19,7 +24,10 @@ const IconButton = {
         style: ({ theme }: { theme: Theme }) => ({
           color: theme.palette.secondary.main,
           '&:hover': {
-            backgroundColor: hexToRGBA(theme.palette.secondary.main, 0.08)
+            backgroundColor: hexToRGBA(
+              theme.palette.secondary.main,
+              HOVER_OPACITY
+            )
           }
         })
       }
@@ -27,7 +35,10 @@ const IconButton = {
     styleOverrides: {
       root: ({ theme }: { theme: Omit<Theme, 'components'> }) => ({
         '&:hover': {
-          backgroundColor: `rgba(${theme.palette.customColors.main}, 0.08)`
+          backgroundColor: hexToRGBA(
+            theme.palette.customColors.main,
+            HOVER_OPACITY
+          )
         }
       })
     }
